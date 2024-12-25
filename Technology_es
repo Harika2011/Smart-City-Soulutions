@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section>
+        <h2>Tecnología en Ciudades Inteligentes</h2>
+        <p>La tecnología juega un papel fundamental en la transformación de las ciudades en "ciudades inteligentes". Desde dispositivos del Internet de las Cosas (IoT) hasta la Inteligencia Artificial (IA) y la analítica de datos, estas innovaciones mejoran la vida urbana al hacer las ciudades más eficientes, seguras y sostenibles. Exploremos las principales tecnologías que impulsan las ciudades inteligentes:</p>
+
+        <h3>Internet de las Cosas (IoT)</h3>
+        <p>El **Internet de las Cosas (IoT)** conecta dispositivos y sensores a lo largo de la ciudad para recopilar y compartir datos en tiempo real. Ejemplos incluyen farolas inteligentes que se ajustan según el tráfico, **medidores inteligentes** para el consumo de energía, y **sensores de contaminación** que monitorean la calidad del aire.</p>
+
+        <a href="iot_es.html">
+            <button> IoT</button>
+        </a>
+        <div id="iot-info" style="display:none;">
+            <p>Los dispositivos IoT están equipados con sensores, software y otras tecnologías que les permiten recopilar e intercambiar datos. En una ciudad inteligente, los dispositivos IoT ayudan con la gestión del tráfico, el monitoreo ambiental, la seguridad pública y más. Hacen que las ciudades sean más receptivas a las necesidades de los ciudadanos en tiempo real.</p>
+        </div>
+
+        <h3>Inteligencia Artificial (IA) y Aprendizaje Automático (ML)</h3>
+        <p>La **IA y el Aprendizaje Automático** se utilizan en las ciudades inteligentes para la toma de decisiones, análisis predictivo y optimización de la gestión de recursos. La IA ayuda a analizar grandes volúmenes de datos recopilados por los dispositivos IoT, identificando patrones y realizando predicciones en tiempo real.</p>
+
+        <a href="ai-in-smart-cities_es.html">
+            <button> IA en Ciudades Inteligentes</button>
+        </a>
+        <div id="ai-info" style="display:none;">
+            <p>La IA se utiliza en diversas aplicaciones de ciudades inteligentes como vehículos autónomos, predicción del tráfico, gestión de la energía y predicción de crímenes. Los algoritmos de aprendizaje automático ayudan a las ciudades a optimizar la asignación de recursos, prever la demanda y ofrecer servicios personalizados a los residentes.</p>
+        </div>
+
+        <h3>Infraestructura Inteligente</h3>
+        <p>La **infraestructura inteligente** incluye edificios, carreteras y espacios públicos equipados con sensores y conectividad para monitorear y gestionar el uso de recursos. Ejemplos incluyen **redes inteligentes** para la electricidad, **sistemas de agua inteligentes** y **redes de transporte inteligentes**.</p>
+
+        <a href="smart-infrastructure_es.html">
+            <button>Infraestructura Inteligente</button>
+        </a>
+        <div id="infrastructure-info" style="display:none;">
+            <p>La infraestructura inteligente incluye tecnologías conectadas que permiten a las ciudades funcionar de manera eficiente y sostenible. Por ejemplo, las redes inteligentes proporcionan datos en tiempo real sobre el consumo de energía, lo que permite una distribución más eficiente de la electricidad. De manera similar, los sistemas de agua inteligentes detectan fugas y optimizan el uso del agua, mientras que las redes de transporte inteligentes reducen la congestión y mejoran el flujo de tráfico.</p>
+        </div>
+
+        <h3>Analítica de Datos y Planificación Urbana</h3>
+        <p>La **analítica de datos** juega un papel crucial en la planificación y desarrollo urbano. Al analizar los datos recopilados de los dispositivos IoT y otras fuentes, las ciudades pueden tomar decisiones informadas sobre el desarrollo de infraestructuras, la gestión del tráfico e incluso las estrategias de salud pública.</p>
+
+        <a href="data-analytics-urban-planning_es.html">
+            <button>Analítica de Datos en la Planificación Urbana</button>
+        </a>
+        <div id="data-analytics-info" style="display:none;">
+            <p>La analítica de datos se utiliza en la planificación urbana para analizar tendencias y hacer predicciones. Por ejemplo, analizar datos de tráfico puede ayudar a las ciudades a diseñar mejores sistemas de transporte, mientras que los datos sobre el consumo de energía pueden informar iniciativas de sostenibilidad. Este enfoque basado en datos permite a las ciudades abordar los problemas de manera más eficaz y planificar las necesidades futuras.</p>
+        </div>
+
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
