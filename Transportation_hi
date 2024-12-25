@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>परिवहन | स्मार्ट सिटी समाधान</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>स्मार्ट सिटी समाधान</h1>
+        <nav aria-label="मुख्य नेविगेशन">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">भाषा चुनें</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi" selected>हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+
+            if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+
+    <section id="hero">
+        <img src="2.png"
+             style="width: 20%; height: 20%; display: block;">
+        <div style="text-align: center; margin-top: -50px;">
+        </div>
+    </section>
+
+    <section>
+        <h2>स्मार्ट सिटी में परिवहन</h2>
+        <p>स्मार्ट सिटी बनाने के लिए कुशल, स्वच्छ और नवीन परिवहन प्रणालियां महत्वपूर्ण हैं। यहां बताया गया है कि स्मार्ट परिवहन समाधान कैसे गतिशीलता में सुधार कर रहे हैं और पर्यावरणीय प्रभाव को कम कर रहे हैं:</p>
+
+        <h3>स्मार्ट सार्वजनिक परिवहन</h3>
+        <p>आधुनिक शहर बसों, ट्रेनों और ट्रामों के लिए **रियल-टाइम ट्रैकिंग** सिस्टम को अपनाते हैं, जिससे यात्रियों को लाइव आगमन समय की जांच करने और भीड़भाड़ से बचने में मदद मिलती है। **इलेक्ट्रिक बसें** और **स्वायत्त वाहन** शून्य-उत्सर्जन सार्वजनिक परिवहन की दिशा में बढ़ रहे हैं।</p>
+
+        <h3>इलेक्ट्रिक और स्वायत्त वाहन</h3>
+        <p>स्मार्ट सिटी अपने परिवहन नेटवर्क में **इलेक्ट्रिक वाहनों (ईवी)** और **स्वायत्त कारों** को शामिल कर रही हैं, जिससे ड्राइवर की आवश्यकता कम हो जाती है। इससे उत्सर्जन कम होता है, यातायात प्रवाह में सुधार होता है और परिवहन अधिक कुशल बनता है।</p>
+        
+        <a href="electricvehicles_hi.html">
+            <button>इलेक्ट्रिक वाहन </button>
+        </a>
+        
+        <div id="ev-info" style="display:none;">
+            <p>इलेक्ट्रिक वाहन (ईवी) पूरी तरह से बैटरी से चलने वाले वाहन हैं। स्मार्ट सिटी में, ईवी चार्जिंग स्टेशन रणनीतिक स्थानों पर स्थित होते हैं, और वाहन एक जुड़े नेटवर्क में एकीकृत होते हैं जो यातायात प्रबंधन और ऊर्जा उपयोग को अनुकूलित करता है।</p>
+        </div>
+
+        <h3>सतत परिवहन: बाइक-शेयरिंग और कार-शेयरिंग</h3>
+        <p>यातायात जाम और प्रदूषण को कम करने के लिए, शहर **बाइक-शेयरिंग प्रोग्राम** और **कार-शेयरिंग सिस्टम** लागू कर रहे हैं। ये समाधान **सतत यात्रा** को बढ़ावा देते हैं और सड़क पर निजी कारों की संख्या को कम करते हैं, जिससे शहर अधिक पैदल यात्री और साइकिल अनुकूल बनते हैं।</p>
+
+        <a href="bikesharing_hi.html">
+            <button>बाइक-शेयरिंग </button>
+        </a>        
+        <div id="bike-share-info" style="display:none;">
+            <p>बाइक-शेयरिंग प्रोग्राम लोगों को शहर के चारों ओर छोटे ट्रिप्स के लिए साइकिल किराए पर लेने की अनुमति देते हैं। ये प्रोग्राम यातायात जाम को कम करते हैं, व्यायाम को बढ़ावा देते हैं, और ड्राइविंग के पर्यावरण-अनुकूल विकल्प हैं। साइकिलें आमतौर पर शहर भर में डॉकिंग स्टेशनों पर उपलब्ध होती हैं, और उपयोगकर्ता उन्हें अलग-अलग स्थानों पर उठा और छोड़ सकते हैं।</p>
+        </div>
+
+        <h3>स्मार्ट ट्रैफिक प्रबंधन</h3>
+        <p>स्मार्ट सिटी **एआई-संचालित ट्रैफिक प्रबंधन सिस्टम** का उपयोग करके भीड़भाड़ को कम करती है। ये सिस्टम सेंसर और ट्रैफिक कैमरों से वास्तविक समय का डेटा एकत्र करते हैं और ट्रैफिक प्रवाह के आधार पर ट्रैफिक लाइट पैटर्न को समायोजित करते हैं। इसके अलावा, शहर **स्मार्ट पार्किंग** समाधान लागू कर रहे हैं जो ड्राइवरों को वास्तविक समय में उपलब्ध पार्किंग स्थानों के लिए मार्गदर्शन करते हैं।</p>
+
+        <h3>एकीकृत गतिशीलता प्लेटफार्म</h3>
+        <p>परिवहन को और अधिक अनुकूलित करने के लिए, कई स्मार्ट सिटी **मूविलिटी-एज-अ-सर्विस (MaaS)** प्लेटफार्म प्रदान करती हैं, जो सार्वजनिक परिवहन, बाइक-शेयरिंग, कार किराए, और अधिक को एक ऐप में एकीकृत करती हैं। यह उपयोगकर्ताओं को अपनी यात्रा की योजना बनाने, टिकटों के लिए भुगतान करने और सभी को एक ही प्लेटफार्म से अपडेट प्राप्त करने की अनुमति देता है।</p>
+        
+        <a href="Mobility-as-a-Service_hi.html">
+            <button>MaaS (मोबिलिटी-एज-ए-सर्विस)</button>
+        </a>    
+        <div id="maas-info" style="display:none;">
+            <p>मूविलिटी-एज-अ-सर्विस (MaaS) प्लेटफार्म विभिन्न परिवहन सेवाओं जैसे बस, ट्रेन, टैक्सी और साझा वाहनों को एक ऐप में एकत्र करता है। उपयोगकर्ता अपनी यात्रा आवश्यकताओं के आधार पर इन सेवाओं का उपयोग कर सकते हैं और एकल भुगतान प्रणाली के माध्यम से भुगतान कर सकते हैं, जिससे परिवहन अधिक सुविधाजनक और सतत बनता है।</p>
+        </div>
+
+    </section>
+    <br>
+    <br>     
+    <br>
+    <br>
+    <br>
+    <br>     
+    
+
+    <footer>
+        <p>&copy; हरिका के स्मार्ट सिटी समाधान।</p>
+    </footer>
+
+</body>
+</html>
+
