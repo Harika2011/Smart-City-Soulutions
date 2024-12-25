@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez comment les villes intelligentes intègrent la durabilité grâce à l'efficacité énergétique, la gestion des déchets et la conservation de l'eau.">
+    <title>Durabilité | Solutions de Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">Anglais</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Espagnol</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mise à jour des liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer de langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mise à jour des liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Navigation vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou de l'anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    <!-- Section de contenu améliorée -->
+    <main>
+        <section>
+            <h2>La durabilité dans les villes intelligentes</h2>
+            <p>La durabilité est au cœur du développement des villes intelligentes, avec pour objectif de créer des environnements urbains écologiques, écoénergétiques et économes en ressources. En utilisant des technologies avancées et l'analyse des données, les villes adoptent des stratégies qui réduisent l'empreinte carbone et améliorent la qualité de vie de leurs habitants. Voici les principaux domaines où les villes intelligentes favorisent la durabilité :</p>
+            
+            <!-- Sous-sections avec un contenu plus spécifique -->
+            <article>
+                <h3>Efficacité énergétique</h3>
+                <p>Les bâtiments et infrastructures intelligents des villes utilisent des technologies de pointe pour optimiser l'utilisation de l'énergie. Les sources d'énergie renouvelable, telles que l'énergie solaire et éolienne, sont intégrées au réseau pour réduire la dépendance aux combustibles fossiles. Les bâtiments intelligents sont équipés de systèmes de CVC (chauffage, ventilation et climatisation) efficaces, de panneaux solaires et d'une isolation avancée, ce qui réduit considérablement la consommation d'énergie. De plus, les systèmes d'éclairage intelligents ajustent automatiquement la luminosité en fonction des conditions environnementales en temps réel, réduisant ainsi la consommation d'électricité et les coûts.</p>
+                
+                <h4>Technologies clés dans l'efficacité énergétique :</h4>
+                <ul>
+                    <li><strong>Panneaux solaires :</strong> Utilisation de l'énergie solaire pour alimenter les bâtiments et les lampadaires.</li>
+                    <li><strong>Réseaux intelligents :</strong> Optimisation de la distribution de l'énergie et intégration efficace des sources renouvelables.</li>
+                    <li><strong>Systèmes de gestion de l'énergie :</strong> Utilisation de capteurs et d'IA pour surveiller et gérer la consommation d'énergie en temps réel.</li>
+                    <li><strong>Éclairage public à LED :</strong> Éclairage économe en énergie qui s'ajuste en fonction de l'heure de la journée et du trafic piétonnier.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Gestion des déchets</h3>
+                <p>Les systèmes de gestion des déchets intelligents utilisent des capteurs activés par l'IoT pour surveiller les niveaux de déchets dans les poubelles et les bennes. Ces données sont envoyées aux services municipaux de gestion des déchets pour optimiser les horaires et les itinéraires de collecte, réduisant ainsi la consommation de carburant et minimisant le trafic des camions. De plus, les capteurs aident à suivre le type et la quantité de déchets pour assurer un recyclage plus efficace. Les villes mettent également en œuvre des technologies de valorisation des déchets qui transforment les déchets non recyclables en énergie utilisable.</p>
+                
+                <h4>Approches clés de la gestion des déchets :</h4>
+                <ul>
+                    <li><strong>Poubelles intelligentes :</strong> Poubelles équipées de capteurs pour détecter lorsqu'elles sont pleines et envoyer des notifications pour la collecte.</li>
+                    <li><strong>Programmes de recyclage :</strong> Tri amélioré des matériaux recyclables grâce à des systèmes automatisés dans les poubelles intelligentes.</li>
+                    <li><strong>Valorisation des déchets :</strong> Conversion des déchets non recyclables en électricité ou en chaleur.</li>
+                    <li><strong>Collecte pilotée par données :</strong> Optimisation des itinéraires et des horaires de collecte grâce à l'analyse des données pour réduire les émissions.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Conservation de l'eau</h3>
+                <p>Avec l'eau devenant une ressource de plus en plus rare, les villes intelligentes prennent des mesures proactives pour conserver et gérer l'utilisation de l'eau. Des systèmes de collecte des eaux pluviales sont mis en place dans les zones urbaines pour capter et stocker l'eau de pluie pour des usages non-potables tels que l'irrigation et le refroidissement. De plus, des systèmes d'irrigation intelligents activés par l'IoT ajustent automatiquement l'utilisation de l'eau en fonction des conditions météorologiques et du niveau d'humidité du sol, garantissant que l'eau est utilisée efficacement et uniquement lorsque cela est nécessaire.</p>
+                
+                <h4>Stratégies clés de conservation de l'eau :</h4>
+                <ul>
+                    <li><strong>Collecte des eaux pluviales :</strong> Collecte et stockage de l'eau de pluie pour l'irrigation et d'autres usages non-potables.</li>
+                    <li><strong>Systèmes d'irrigation intelligents :</strong> Utilisation de capteurs et de prévisions météorologiques pour optimiser l'utilisation de l'eau pour les aménagements paysagers.</li>
+                    <li><strong>Détection de fuites d'eau :</strong> Mise en place de capteurs IoT dans les canalisations d'eau pour détecter les fuites tôt et éviter le gaspillage.</li>
+                    <li><strong>Recyclage de l'eau :</strong> Réutilisation des eaux grises des ménages pour des usages non-potables, réduisant ainsi la demande en eau globale.</li>
+                </ul>
+            </article>
+
+            <!-- Nouvelle section sur les espaces verts -->
+            <article>
+                <h3>Espaces verts et agriculture urbaine</h3>
+                <p>Intégrer des espaces verts dans les zones urbaines est essentiel pour améliorer la qualité de l'air, offrir des espaces
