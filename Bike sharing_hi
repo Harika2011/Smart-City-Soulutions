@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बाइक-शेयरिंग प्रोग्राम | स्मार्ट सिटी समाधान</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>स्मार्ट सिटी समाधान</h1>
+        <nav aria-label="मुख्य नेविगेशन">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">भाषा चुनें</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi" selected>हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+
+            if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section>
+        <h2>स्मार्ट सिटी में बाइक-शेयरिंग प्रोग्राम</h2>
+        <p>हमारा बाइक-शेयरिंग प्रोग्राम ट्रैफिक जाम को कम करने, कार्बन उत्सर्जन को घटाने और एक स्वस्थ जीवनशैली को बढ़ावा देने में मदद करता है। जानें कि दुनिया भर के शहर स्थायी शहरी परिवेश बनाने के लिए बाइक-शेयरिंग समाधानों को कैसे लागू कर रहे हैं।</p>
+        
+        <h3>बाइक-शेयरिंग कैसे काम करता है</h3>
+        <p>उपयोगकर्ता शहर भर में स्थित डॉकिंग स्टेशनों से बाइक किराए पर ले सकते हैं। प्रत्येक बाइक में जीपीएस होता है, और उपयोगकर्ता मोबाइल ऐप के माध्यम से उपलब्धता की जांच कर सकते हैं। उपयोग के बाद, बाइक को किसी भी उपलब्ध डॉकिंग स्टेशन पर वापस किया जा सकता है, जिससे यह एक लचीला और सुविधाजनक परिवहन साधन बन जाता है।</p>
+        
+        <h3>बाइक-शेयरिंग के लाभ</h3>
+        <ul>
+            <li>ट्रैफिक जाम को कम करता है</li>
+            <li>प्रदूषण के स्तर को घटाता है</li>
+            <li>शारीरिक स्वास्थ्य को बढ़ावा देता है</li>
+            <li>लागत प्रभावी परिवहन</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; हरिका के स्मार्ट सिटी समाधान।</p>
+    </footer>
+
+</body>
+</html>
