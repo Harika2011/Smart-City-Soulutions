@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructures Intelligentes | Solutions de Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mise à jour des liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer la langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mise à jour des liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    <section>
+        <h2>Infrastructures Intelligentes dans les Villes Intelligentes</h2>
+        <p>Les infrastructures intelligentes désignent l'intégration des technologies avancées dans l'infrastructure urbaine pour améliorer sa performance, son efficacité et sa durabilité. Cela inclut tout, des réseaux énergétiques aux systèmes de transport et bâtiments, tous équipés de capteurs, de réseaux de communication et de systèmes basés sur les données.</p>
+
+        <h3>Qu'est-ce que les infrastructures intelligentes ?</h3>
+        <p>Les infrastructures intelligentes utilisent des dispositifs IoT (Internet des objets), des capteurs et des analyses de données pour créer des systèmes interconnectés qui permettent une surveillance en temps réel et une optimisation des ressources et des services. L'objectif est de créer des environnements urbains plus efficaces, durables et résilients.</p>
+
+        <h3>Composants clés des infrastructures intelligentes</h3>
+        <ul>
+            <li><strong>Réseaux électriques intelligents :</strong> Réseaux énergétiques avancés qui utilisent des données en temps réel pour optimiser la distribution de l'énergie, réduire les gaspillages et intégrer les sources d'énergie renouvelables.</li>
+            <li><strong>Systèmes de transport intelligents :</strong> Systèmes connectés IoT pour la surveillance du trafic, les véhicules autonomes et les solutions de stationnement intelligent.</li>
+            <li><strong>Bâtiments intelligents :</strong> Bâtiments équipés de systèmes énergétiques efficaces, tels que l'éclairage, le chauffage et la climatisation, contrôlés par des capteurs et des systèmes automatisés.</li>
+            <li><strong>Gestion intelligente de l'eau :</strong> Dispositifs IoT utilisés pour surveiller et gérer la distribution et la qualité de l'eau, réduisant les gaspillages et garantissant une utilisation durable de l'eau.</li>
+            <li><strong>Gestion intelligente des déchets :</strong> Poubelles équipées de capteurs qui notifient les équipes de collecte des déchets lorsqu'elles sont pleines, améliorant l'efficacité et réduisant les coûts opérationnels.</li>
+        </ul>
+
+        <h3>Avantages des infrastructures intelligentes</h3>
+        <ul>
+            <li>Efficacité opérationnelle améliorée grâce à l'automatisation et à la prise de décisions basée sur les données.</li>
+            <li>Réduction de la consommation d'énergie et du gaspillage des ressources.</li>
+            <li>Meilleure durabilité et impact environnemental grâce à l'optimisation de l'utilisation de l'énergie, de l'eau et des déchets.</li>
+            <li>Sécurité publique accrue grâce aux systèmes de surveillance intelligents (par exemple, caméras de surveillance, gestion du trafic).</li>
+            <li>Meilleure résilience face aux catastrophes naturelles ou aux défaillances des infrastructures grâce à la maintenance proactive et à l'analyse prédictive.</li>
+        </ul>
+
+        <h3>Défis et considérations</h3>
+        <p>Bien que les infrastructures intelligentes offrent de nombreux avantages, elles présentent également des défis. Ceux-ci incluent les préoccupations relatives à la confidentialité des données, les risques de cybersécurité, le coût de la mise à niveau des infrastructures existantes, et la nécessité de cadres réglementaires robustes pour garantir une mise en œuvre équitable et éthique.</p>
+
+        <h3>L'avenir des infrastructures intelligentes</h3>
+        <p>À mesure que les villes continuent de croître et de devenir plus connectées, le rôle des infrastructures intelligentes ne cessera de croître. Les technologies émergentes telles que la 5G, l'IA et la blockchain amélioreront les capacités des infrastructures intelligentes, permettant aux villes de devenir plus efficaces, résilientes et durables.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Ville Intelligente de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
