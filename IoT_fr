@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet des Objets (IoT) | Solutions de Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mise à jour des liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer la langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mise à jour des liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    <section>
+        <h2>Internet des Objets (IoT) dans les Villes Intelligentes</h2>
+        <p>L'Internet des objets (IoT) transforme les villes en connectant des appareils, des capteurs et des systèmes pour collecter et partager des données en temps réel. Cette connectivité permet une gestion plus intelligente des ressources et des services, améliorant l'efficacité, la durabilité et la qualité de la vie urbaine. Explorons comment l'IoT est utilisé dans les villes intelligentes :</p>
+
+        <h3>Qu'est-ce que l'IoT ?</h3>
+        <p>L'IoT fait référence à un réseau d'objets physiques intégrés avec des capteurs, des logiciels et d'autres technologies qui leur permettent de collecter et d'échanger des données. Dans une ville intelligente, les appareils IoT sont intégrés à l'infrastructure pour surveiller et gérer tout, de la circulation à la qualité de l'air, à l'éclairage public et à la gestion des déchets.</p>
+
+        <h3>Applications clés de l'IoT dans les Villes Intelligentes</h3>
+        <ul>
+            <li><strong>Éclairage public intelligent :</strong> Les lampadaires intelligents activés par l'IoT ajustent leur luminosité en fonction des données en temps réel, réduisant ainsi la consommation d'énergie et améliorant la sécurité publique.</li>
+            <li><strong>Gestion intelligente des déchets :</strong> Des capteurs dans les poubelles notifient les services municipaux lorsqu'elles sont pleines, optimisant ainsi les itinéraires de collecte et réduisant les trajets inutiles.</li>
+            <li><strong>Gestion du trafic :</strong> Les capteurs IoT dans les feux de signalisation et les véhicules fournissent des données en temps réel pour optimiser la circulation et réduire la congestion.</li>
+            <li><strong>Surveillance de l'environnement :</strong> Les appareils IoT peuvent suivre la qualité de l'air, la température et les niveaux de bruit, aidant les villes à prendre des mesures proactives pour améliorer l'environnement urbain.</li>
+        </ul>
+
+        <h3>Avantages de l'IoT dans les Villes Intelligentes</h3>
+        <ul>
+            <li>Efficacité accrue des services publics (par exemple, énergie, eau, gestion des déchets)</li>
+            <li>Réduction des coûts opérationnels et du gaspillage de ressources</li>
+            <li>Sécurité renforcée grâce aux systèmes de surveillance intelligents</li>
+            <li>Meilleure qualité de vie pour les résidents grâce à des opérations urbaines optimisées</li>
+        </ul>
+
+        <h3>Défis et Considérations</h3>
+        <p>Bien que l'IoT présente de nombreux avantages, il existe des défis, tels que la garantie de la confidentialité et de la sécurité des données, la gestion du volume important de données générées et l'interopérabilité entre les différents systèmes et appareils.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Ville Intelligente de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
