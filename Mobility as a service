@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Mobility-as-a-Service (MaaS), a smart transportation innovation integrating multiple modes of travel into a seamless platform.">
+    <title>Mobility-as-a-Service (MaaS)</title>
+    <link rel="stylesheet" href="styles.css">
+     
+</head>
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+    <h1>Smart City Solutions</h1>
+    <nav aria-label="Main navigation">
+        <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+            <!-- Navigation links will be updated dynamically -->
+        </ul>
+    </nav>
+    <form action="#" method="get" style="margin-left: auto;">
+        <label for="language-select" style="display: none;">Choose Language</label>
+        <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+            <option value="english" selected>English</option>
+            <option value="hindi">हिंदी</option>
+            <option value="french">Français</option>
+            <option value="spanish">Español</option>
+        </select>
+    </form>
+</header>
+
+<script>
+    // Function to update navigation links and content based on language
+    function updateNavLinks(language) {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.innerHTML = ""; // Clear existing links
+
+        // Language-specific navigation links
+        const links = {
+            english: [
+                { href: "homepage.html", label: "Home" },
+                { href: "sustainability.html", label: "Sustainability" },
+                { href: "transportation.html", label: "Transportation" },
+                { href: "technology.html", label: "Technology" },
+            ],
+            hindi: [
+                { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                { href: "sustainability_hi.html", label: "स्थिरता" },
+                { href: "transportation_hi.html", label: "परिवहन" },
+                { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+            ],
+            french: [
+                { href: "homepage_fr.html", label: "Accueil" },
+                { href: "sustainability_fr.html", label: "Durabilité" },
+                { href: "transportation_fr.html", label: "Transport" },
+                { href: "technology_fr.html", label: "Technologie" },
+            ],
+            spanish: [
+                { href: "homepage_es.html", label: "Inicio" },
+                { href: "sustainability_es.html", label: "Sostenibilidad" },
+                { href: "transportation_es.html", label: "Transporte" },
+                { href: "technology_es.html", label: "Tecnología" },
+            ],
+        };
+
+        // Update navigation links
+        links[language].forEach(link => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = link.href;
+            a.textContent = link.label;
+            a.setAttribute("aria-label", `Go to ${link.label}`);
+            li.appendChild(a);
+            navLinks.appendChild(li);
+        });
+    }
+
+    // Switch language function
+    function switchLanguage(select) {
+        const language = select.value;
+
+        // Update navigation links based on the selected language
+        updateNavLinks(language);
+
+        // Navigate to the corresponding homepage
+        if (language === "english") {
+            location.href = "homepage.html";
+        } else if (language === "hindi") {
+            location.href = "homepage_hi.html";
+        } else if (language === "french") {
+            location.href = "homepage_fr.html";
+        } else if (language === "spanish") {
+            location.href = "homepage_es.html";
+        }
+    }
+
+    // Set the default language based on the URL or English
+    const currentLanguage = location.href.includes("_hi")
+        ? "hindi"
+        : location.href.includes("_fr")
+        ? "french"
+        : location.href.includes("_es")
+        ? "spanish"
+        : "english";
+
+    document.getElementById("language-select").value = currentLanguage;
+    updateNavLinks(currentLanguage);
+</script>
+
+
+
+<body>
+    
+
+    <section>
+        <h2>What is MaaS?</h2>
+        <p>Mobility-as-a-Service (MaaS) integrates various transportation services into a single accessible platform. It simplifies urban travel by combining public transit, ride-sharing, bike rentals, and more, allowing users to plan, book, and pay for trips seamlessly.</p>
+
+        <h2>Key Benefits of MaaS</h2>
+        <ul>
+            <li><strong>Seamless travel:</strong> Combine multiple modes of transport in one trip.</li>
+            <li><strong>Convenience:</strong> Use one app for planning, booking, and payments.</li>
+            <li><strong>Cost efficiency:</strong> Optimize routes and travel costs.</li>
+            <li><strong>Sustainability:</strong> Reduce traffic congestion and carbon emissions.</li>
+        </ul>
+
+        <h2>How MaaS Works</h2>
+        <p>MaaS platforms utilize advanced technologies such as GPS, data analytics, and digital payment systems to provide users with real-time information on transportation options and optimize urban mobility.</p>
+    
+        <button onclick="window.location.href='transportation.html'" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Back to Technology</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Smart City Solutions. All rights reserved.</p>
+    </footer>
+</body>
+</html>
