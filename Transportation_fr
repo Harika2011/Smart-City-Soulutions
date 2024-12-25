@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport | Solutions de Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mettre à jour les liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer de langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mettre à jour les liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou en anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section id="hero">
+        <img src="2.png"
+             style="width: 20%; height: 20%; display: block;">
+        <div style="text-align: center; margin-top: -50px;">
+            
+        </div>
+    </section>
+
+    <section>
+        <h2>Transport dans les Villes Intelligentes</h2>
+        <p>Des systèmes de transport efficaces, écologiques et innovants sont essentiels pour construire des villes intelligentes. Voici comment les solutions de transport intelligentes améliorent la mobilité et réduisent l'impact environnemental :</p>
+
+        <h3>Transport Public Intelligent</h3>
+        <p>Les villes modernes adoptent des systèmes de **suivi en temps réel** pour les bus, trains et tramways, permettant aux passagers de consulter les horaires d'arrivée en direct et d'éviter les encombrements. Les **bus électriques** et les **véhicules autonomes** deviennent de plus en plus populaires dans le cadre du passage au transport public sans émissions.</p>
+
+        <h3>Véhicules Électriques et Autonomes</h3>
+        <p>Les villes intelligentes intègrent des **véhicules électriques (VE)** dans leurs réseaux de transport, y compris des **voitures autonomes** qui réduisent le besoin de conducteurs humains. Cela réduit les émissions, améliore la fluidité du trafic et rend le transport plus efficace.</p>
+        
+        <a href="electricvehicles_fr.html">
+            <button>Véhicules électriques</button>
+        </a>
+        
+        <div id="ev-info" style="display:none;">
+            <p>Les véhicules électriques (VE) sont des véhicules fonctionnant entièrement à l'électricité, généralement alimentés par des batteries. Dans les villes intelligentes, les stations de recharge des VE sont stratégiquement situées et les véhicules sont intégrés dans un réseau connecté qui optimise la gestion du trafic et l'utilisation de l'énergie.</p>
+        </div>
+
+        <h3>Transport Durable : Partage de Vélos et de Voitures</h3>
+        <p>Pour réduire les embouteillages et la pollution, les villes mettent en place des **programmes de partage de vélos** et des **systèmes de partage de voitures**. Ces solutions favorisent le **déplacement durable** et réduisent le nombre de voitures privées sur la route, rendant les villes plus accessibles à pied et adaptées aux vélos.</p>
+
+        <a href="bikesharing_fr.html">
+            <button> Partage de Vélos</button>
+        </a>        
+        <div id="bike-share-info" style="display:none;">
+            <p>Les programmes de partage de vélos permettent aux gens de louer des vélos pour de courts trajets dans la ville. Ces programmes réduisent les embouteillages, favorisent l'exercice physique et sont une alternative écologique à la conduite. Les vélos sont généralement disponibles dans des stations de docking réparties dans la ville, et les utilisateurs peuvent les prendre et les déposer à différents endroits.</p>
+        </div>
+
+        <h3>Gestion Intelligente du Trafic</h3>
+        <p>Les villes intelligentes utilisent des **systèmes de gestion du trafic alimentés par l'IA** pour réduire les embouteillages. Ces systèmes collectent des données en temps réel à partir de capteurs et de caméras de circulation, ajustant les patterns des feux de signalisation en fonction du flux de trafic. De plus, les villes mettent en place des solutions de **stationnement intelligent** qui guident les conducteurs vers les places de parking disponibles en temps réel.</p>
+
+        <h3>Plateformes de Mobilité Intégrée</h3>
+        <p>Pour optimiser davantage les transports, de nombreuses villes intelligentes proposent des plateformes de **mobilité en tant que service (MaaS)**, qui intègrent les transports publics, le partage de vélos, la location de voitures et plus encore dans une seule application. Cela permet aux utilisateurs de planifier leurs trajets, de payer leurs billets et de recevoir des mises à jour, le tout depuis une seule plateforme.</p>
+        
+        <a href="Mobility-as-a-Service_fr.html">
+            <button> MaaS (Mobilité en tant que Service)</button>
+        </a>    
+        <div id="maas-info" style="display:none;">
+            <p>Les plateformes de Mobilité en tant que Service (MaaS) rassemblent divers services de transport comme les bus, trains, taxis et véhicules partagés dans une seule application fluide. Les utilisateurs peuvent accéder à ces services en fonction de leurs besoins de déplacement et payer via un système de paiement unique, rendant les transports plus pratiques et durables.</p>
+        </div>
+
+    </section>
+    <br>
+    <br>     
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Ville Intelligente de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
