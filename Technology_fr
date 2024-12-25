@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technologie | Solutions pour la Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions pour la Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">Anglais</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Espagnol</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mettre à jour les liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer de langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mettre à jour les liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+
+    <section>
+        <h2>Technologie dans les Villes Intelligentes</h2>
+        <p>La technologie joue un rôle crucial dans la transformation des villes en "villes intelligentes". Des dispositifs Internet des Objets (IoT) à l'Intelligence Artificielle (IA) et à l'analyse des données, ces innovations améliorent la vie urbaine en rendant les villes plus efficaces, sûres et durables. Explorons les principales technologies qui alimentent les villes intelligentes :</p>
+
+        <h3>Internet des Objets (IoT)</h3>
+        <p>L'**Internet des Objets (IoT)** connecte les appareils et capteurs à travers la ville pour collecter et partager des données en temps réel. Les exemples incluent des **éclairages publics intelligents** qui s'ajustent en fonction du trafic, des **compteurs intelligents** pour la consommation d'énergie, et des **capteurs de pollution** qui surveillent la qualité de l'air.</p>
+
+        <a href="iot_fr.html">
+            <button>En savoir plus sur l'IoT</button>
+        </a>        
+        <div id="iot-info" style="display:none;">
+            <p>Les dispositifs IoT sont équipés de capteurs, de logiciels et d'autres technologies qui leur permettent de collecter et d'échanger des données. Dans une ville intelligente, ces dispositifs aident à la gestion du trafic, à la surveillance de l'environnement, à la sécurité publique, et bien plus encore. Ils rendent les villes plus réactives aux besoins des citoyens en temps réel.</p>
+        </div>
+
+        <h3>Intelligence Artificielle (IA) et Apprentissage Automatique (AA)</h3>
+        <p>L'**IA et l'Apprentissage Automatique** sont utilisés dans les villes intelligentes pour la prise de décision, l'analyse prédictive et l'optimisation de la gestion des ressources. L'IA aide à analyser de grands ensembles de données collectées par les dispositifs IoT, à identifier des modèles, et à faire des prédictions en temps réel.</p>
+
+        <a href="ai-in-smart-cities_fr.html">
+            <button>L'IA dans les villes intelligentes</button>
+        </a>
+        <div id="ai-info" style="display:none;">
+            <p>L'IA est utilisée dans diverses applications des villes intelligentes telles que les véhicules autonomes, la prédiction du trafic, la gestion de l'énergie, et la prédiction des crimes. Les algorithmes d'apprentissage automatique aident les villes à optimiser l'allocation des ressources, à prévoir la demande, et à offrir des services personnalisés aux résidents.</p>
+        </div>
+
+        <h3>Infrastructures Intelligentes</h3>
+        <p>Les **infrastructures intelligentes** comprennent les bâtiments, les routes et les espaces publics qui sont équipés de capteurs et de connectivité pour surveiller et gérer l'utilisation des ressources. Les exemples incluent des **réseaux électriques intelligents**, des **systèmes d'eau intelligents**, et des **réseaux de transport intelligents**.</p>
+
+        <a href="smart-infrastructure_fr.html">
+            <button>Infrastructures intelligentes</button>
+        </a>
+        <div id="infrastructure-info" style="display:none;">
+            <p>Les infrastructures intelligentes incluent des technologies connectées qui permettent aux villes de fonctionner de manière efficace et durable. Par exemple, les réseaux électriques intelligents fournissent des données en temps réel sur la consommation d'énergie, permettant une distribution plus efficace de l'électricité. De même, les systèmes d'eau intelligents détectent les fuites et optimisent l'utilisation de l'eau, tandis que les réseaux de transport intelligents réduisent la congestion et améliorent le flux de trafic.</p>
+        </div>
+
+        <h3>Analyse des Données et Urbanisme</h3>
+        <p>L'**analyse des données** joue un rôle essentiel dans la planification et le développement urbains. En analysant les données collectées par les dispositifs IoT et d'autres sources, les villes peuvent prendre des décisions éclairées sur le développement des infrastructures, la gestion du trafic et même les stratégies de santé publique.</p>
+
+        <a href="data-analytics-urban-planning_fr.html">
+            <button>Analyse de données dans l'urbanisme</button>
+        </a>
+        <div id="data-analytics-info" style="display:none;">
+            <p>L'analyse des données est utilisée dans l'urbanisme pour analyser les tendances et faire des prévisions. Par exemple, l'analyse des données de trafic peut aider les villes à concevoir de meilleurs systèmes de transport, tandis que les données sur la consommation d'énergie peuvent orienter les initiatives de durabilité. Cette approche axée sur les données permet aux villes de résoudre les problèmes plus efficacement et de planifier les besoins futurs.</p>
+        </div>
+
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions pour la Ville Intelligente de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
