@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section id="hero">
+        <img src="2.png" style="width: 20%; height: 20%; display: block;">
+        <div style="text-align: center; margin-top: -50px;"></div>
+    </section>
+
+    <section>
+        <h2>Transporte en Ciudades Inteligentes</h2>
+        <p>Sistemas de transporte eficientes, limpios e innovadores son clave para construir ciudades inteligentes. Así es como las soluciones de transporte inteligente mejoran la movilidad y reducen el impacto ambiental:</p>
+
+        <h3>Transporte Público Inteligente</h3>
+        <p>Las ciudades modernas están adoptando sistemas de **seguimiento en tiempo real** para autobuses, trenes y tranvías, permitiendo a los usuarios consultar los tiempos de llegada en vivo y evitar aglomeraciones. Los **autobuses eléctricos** y los **vehículos autónomos** están ganando popularidad como parte del movimiento hacia el transporte público sin emisiones.</p>
+
+        <h3>Vehículos Eléctricos y Autónomos</h3>
+        <p>Las ciudades inteligentes están integrando **vehículos eléctricos (VE)** en sus redes de transporte, incluidos **autos autónomos** que reducen la necesidad de conductores humanos. Esto reduce las emisiones, mejora el flujo de tráfico y hace que el transporte sea más eficiente.</p>
+        <a href="electricvehicles_es.html">
+            <button>Vehículos eléctricos</button>
+        </a>
+
+        <h3>Transporte Sostenible: Bicicletas y Autos Compartidos</h3>
+        <p>Para reducir la congestión y la contaminación, las ciudades están implementando programas de **bicicletas compartidas** y **autos compartidos**, promoviendo un transporte más sostenible y reduciendo el número de vehículos privados en las calles.</p>
+        <a href="bikesharing_es.html">
+            <button>Bicicletas compartidas</button>
+        </a>
+
+        <h3>Gestión Inteligente del Tráfico</h3>
+        <p>Las ciudades inteligentes utilizan sistemas de gestión de tráfico impulsados por **IA** para reducir la congestión. Estos sistemas recopilan datos en tiempo real de sensores y cámaras, ajustando los patrones de los semáforos según el flujo del tráfico.</p>
+
+        <h3>Plataformas de Movilidad Integrada</h3>
+        <p>Para optimizar aún más el transporte, muchas ciudades inteligentes ofrecen plataformas de **Movilidad como Servicio (MaaS)**, que integran transporte público, bicicletas compartidas, alquiler de autos y más en una sola aplicación.</p>
+        <a href="Mobility-as-a-Service_es.html">
+            <button>MaaS</button>
+        </a>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.</p>
+    </footer>
+
+</body>
+</html>
