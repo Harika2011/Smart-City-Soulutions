@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre cómo las ciudades inteligentes integran la sostenibilidad a través de la eficiencia energética, la gestión de residuos y la conservación del agua.">
+    <title>Sostenibilidad | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <!-- Sección de Contenido -->
+    <main>
+        <section>
+            <h2>Sostenibilidad en las Ciudades Inteligentes</h2>
+            <p>La sostenibilidad está en el núcleo del desarrollo de las ciudades inteligentes, con el objetivo de crear entornos urbanos ecológicos, eficientes en energía y de conservación de recursos. Mediante el uso de tecnología avanzada y análisis de datos, las ciudades están adoptando estrategias que reducen la huella de carbono y mejoran la calidad de vida de sus habitantes. Estas son las áreas clave donde las ciudades inteligentes impulsan la sostenibilidad:</p>
+            
+            <article>
+                <h3>Eficiencia Energética</h3>
+                <p>Los edificios e infraestructuras inteligentes en las ciudades utilizan tecnología de vanguardia para optimizar el uso de la energía. Fuentes de energía renovables, como la solar y eólica, se integran en la red para reducir la dependencia de los combustibles fósiles. Los edificios inteligentes están equipados con sistemas de climatización eficientes, paneles solares y aislamiento avanzado, lo que reduce significativamente el consumo de energía.</p>
+                <ul>
+                    <li><strong>Paneles Solares:</strong> Aprovechando la energía solar para alimentar edificios y farolas.</li>
+                    <li><strong>Redes Inteligentes:</strong> Optimizando la distribución de energía y integrando fuentes renovables de manera eficiente.</li>
+                    <li><strong>Sistemas de Gestión de Energía:</strong> Sensores e IA para monitorear el consumo en tiempo real.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Gestión de Residuos</h3>
+                <p>Los sistemas inteligentes utilizan sensores IoT para monitorear los niveles de basura en contenedores. Esto optimiza la recolección, reduciendo el consumo de combustible y minimizando el tráfico. Además, tecnologías avanzadas convierten los residuos no reciclables en energía utilizable.</p>
+                <ul>
+                    <li><strong>Contenedores Inteligentes:</strong> Detectan cuando están llenos y envían notificaciones.</li>
+                    <li><strong>Programas de Reciclaje:</strong> Mejora en la clasificación de materiales reciclables.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Conservación del Agua</h3>
+                <p>Las ciudades inteligentes están implementando sistemas de recolección de agua de lluvia e irrigación inteligente para conservar recursos y prevenir el desperdicio.</p>
+                <ul>
+                    <li><strong>Recolección de Agua de Lluvia:</strong> Almacenamiento para usos no potables.</li>
+                    <li><strong>Detección de Fugas:</strong> Sensores IoT para detectar fugas en tuberías.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.</p>
+    </footer>
+
+</body>
+</html>
