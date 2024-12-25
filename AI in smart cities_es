@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial (IA) en Ciudades Inteligentes | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    <section>
+        <h2>Inteligencia Artificial (IA) en Ciudades Inteligentes</h2>
+        <p>La Inteligencia Artificial (IA) está revolucionando la vida urbana al permitir que las ciudades tomen decisiones más informadas y basadas en datos en tiempo real. Las tecnologías de IA, como el aprendizaje automático (ML) y el aprendizaje profundo, están ayudando a las ciudades a optimizar los recursos, mejorar los servicios y aumentar la calidad de vida. Aquí se muestra cómo se utiliza la IA en las ciudades inteligentes:</p>
+
+        <h3>¿Qué es la Inteligencia Artificial?</h3>
+        <p>La Inteligencia Artificial se refiere a sistemas y máquinas que pueden imitar la inteligencia humana para realizar tareas como la toma de decisiones, la resolución de problemas y el aprendizaje a partir de datos. En las ciudades inteligentes, la IA se utiliza para procesar grandes cantidades de datos recopilados de dispositivos IoT, sensores y cámaras para optimizar diversas funciones urbanas.</p>
+
+        <h3>Principales Aplicaciones de la IA en Ciudades Inteligentes</h3>
+        <ul>
+            <li><strong>Gestión del Tráfico:</strong> Los algoritmos de IA analizan los datos del tráfico en tiempo real para optimizar el flujo vehicular, reducir la congestión y predecir patrones de tráfico.</li>
+            <li><strong>Gestión Inteligente de la Energía:</strong> La IA ayuda a gestionar la distribución de energía prediciendo la demanda y optimizando el uso de fuentes de energía renovables como la solar y la eólica.</li>
+            <li><strong>Seguridad Pública:</strong> Los sistemas de vigilancia impulsados por IA y las herramientas de policía predictiva ayudan a mejorar la seguridad al identificar riesgos potenciales y mejorar los tiempos de respuesta de las fuerzas del orden.</li>
+            <li><strong>Gestión de Residuos:</strong> Las tecnologías de IA optimizan los horarios de recolección de residuos según los datos en tiempo real, asegurando un uso eficiente de los recursos y reduciendo el impacto ambiental.</li>
+            <li><strong>Atención Sanitaria:</strong> Las soluciones basadas en IA en la atención sanitaria ayudan a gestionar los historiales médicos, predecir tendencias de salud y optimizar la asignación de recursos en hospitales y clínicas.</li>
+        </ul>
+
+        <h3>Beneficios de la IA en Ciudades Inteligentes</h3>
+        <ul>
+            <li>Mejor gestión de recursos y ahorro de costos</li>
+            <li>Mejores servicios para los ciudadanos mediante la automatización</li>
+            <li>Mejor planificación urbana y toma de decisiones basadas en datos</li>
+            <li>Mayor seguridad pública y tiempos de respuesta más rápidos ante emergencias</li>
+            <li>Ciudades más sostenibles mediante el uso optimizado de la energía y la gestión de residuos</li>
+        </ul>
+
+        <h3>Desafíos y Consideraciones Éticas</h3>
+        <p>Aunque la IA ofrece muchos beneficios, existen desafíos como la preocupación por la privacidad de los datos, el riesgo de sesgos algorítmicos y la necesidad de una regulación adecuada. Las ciudades deben garantizar la transparencia y la equidad en los procesos de toma de decisiones de la IA para asegurar resultados justos y éticos para todos los ciudadanos.</p>
+
+        <h3>El Futuro de la IA en Ciudades Inteligentes</h3>
+        <p>A medida que la tecnología de IA continúa evolucionando, su impacto en las ciudades inteligentes solo aumentará. Desde vehículos autónomos hasta atención sanitaria predictiva, la IA desempeñará un papel crucial en hacer que las ciudades sean más eficientes, sostenibles y habitables para las futuras generaciones.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
