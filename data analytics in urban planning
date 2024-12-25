@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics in Urban Planning | Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+
+    <section>
+        <h2>Data Analytics in Urban Planning</h2>
+        <p>Data analytics is a key component in modern urban planning. By analyzing large sets of data from various sources such as IoT devices, transportation systems, and environmental sensors, cities can make data-driven decisions that improve efficiency, sustainability, and quality of life for residents. Here's how data analytics is used in urban planning:</p>
+
+        <h3>What is Data Analytics in Urban Planning?</h3>
+        <p>Data analytics in urban planning involves the use of advanced tools and techniques to analyze data collected from various urban systems. By processing and interpreting this data, urban planners can gain insights that help shape city development, improve resource management, and enhance citizen engagement.</p>
+
+        <h3>Key Applications of Data Analytics in Urban Planning</h3>
+        <ul>
+            <li><strong>Traffic and Mobility Analysis:</strong> By analyzing traffic data, urban planners can optimize road networks, improve public transportation routes, and reduce congestion in cities.</li>
+            <li><strong>Land Use and Zoning:</strong> Data analytics helps planners make informed decisions about land use, zoning regulations, and how to allocate space for residential, commercial, and green areas.</li>
+            <li><strong>Environmental Sustainability:</strong> Data from environmental sensors can be used to monitor air quality, waste management, and water consumption to promote more sustainable urban development.</li>
+            <li><strong>Social Trends and Public Health:</strong> By analyzing demographic data and health statistics, planners can design better public health initiatives, optimize access to services, and address social inequalities.</li>
+            <li><strong>Smart Infrastructure:</strong> Data analytics helps in the design and management of smart infrastructure, including smart buildings, energy-efficient systems, and smart grids.</li>
+        </ul>
+
+        <h3>Benefits of Data Analytics in Urban Planning</h3>
+        <ul>
+            <li><strong>Informed Decision-Making:</strong> Data allows urban planners to make decisions based on real-time insights, improving the accuracy and effectiveness of their strategies.</li>
+            <li><strong>Increased Efficiency:</strong> Data-driven approaches optimize the use of resources and streamline urban planning processes.</li>
+            <li><strong>Better Public Engagement:</strong> Analyzing data on public preferences and needs can lead to more inclusive urban planning and better engagement with citizens.</li>
+            <li><strong>Predictive Planning:</strong> Data analytics enables planners to predict future trends, such as population growth or transportation needs, and plan accordingly.</li>
+            <li><strong>Cost Savings:</strong> By optimizing resource management and infrastructure development, data analytics can reduce costs and improve the overall budget efficiency of urban planning projects.</li>
+        </ul>
+
+        <h3>Challenges and Considerations</h3>
+        <p>While data analytics offers tremendous opportunities for improving urban planning, there are challenges, including data privacy and security concerns, the need for proper data governance, and the potential for bias in algorithmic decision-making. It’s essential for cities to develop ethical frameworks and policies to ensure the responsible use of data in urban planning.</p>
+
+        <h3>The Future of Data Analytics in Urban Planning</h3>
+        <p>The future of data analytics in urban planning is promising. With advancements in AI, machine learning, and big data, cities will be able to make even more precise and effective decisions. Data analytics will play a crucial role in building smarter, more sustainable, and more livable cities in the future.</p>
+        <button onclick="window.location.href='technology.html'" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Back to Technology</button>
+    
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
