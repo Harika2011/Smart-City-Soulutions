@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation | Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Button styles to match header */
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF; /* Same as header color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Expanded padding for size increase */
+            background-image: url('2.png'); /* Background image */
+            background-size: cover; /* Cover entire header */
+            background-position: center; /* Center the image */
+            color: white; /* Ensure text is visible */
+            text-shadow: 1px 1px 2px black; /* Add shadow for text clarity */
+            height: 200px; /* Adjust height as needed */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em; /* Increased font size for the title */
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white; /* Ensure links are visible */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline; /* Underline on hover for clarity */
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+
+  
+
+    <section>
+        <h2>Transportation in Smart Cities</h2>
+        <p>Efficient, clean, and innovative transportation systems are key to building smart cities. Here's how smart transportation solutions are improving mobility and reducing environmental impact:</p>
+
+        <h3>Smart Public Transport</h3>
+        <p>Modern cities are adopting **real-time tracking** systems for buses, trains, and trams, allowing commuters to check live arrival times and avoid overcrowding. **Electric buses** and **autonomous vehicles** are becoming increasingly popular as part of the move towards zero-emission public transportation.</p>
+
+        <h3>Electric and Autonomous Vehicles</h3>
+        <p>Smart cities are integrating **electric vehicles (EVs)** into their transport networks, including **autonomous cars** that reduce the need for human drivers. This reduces emissions, improves traffic flow, and makes transportation more efficient.</p>
+        
+        <a href="electricvehicles.html">
+            <button> Electric Vehicles</button>
+        </a>
+        
+        <div id="ev-info" style="display:none;">
+            <p>Electric vehicles (EVs) are vehicles that run entirely on electricity, typically powered by batteries. In smart cities, EV charging stations are strategically located, and vehicles are integrated into a connected network that optimizes traffic management and energy use.</p>
+        </div>
+
+        <h3>Sustainable Transport: Bike-Sharing and Car-Sharing</h3>
+        <p>To reduce traffic congestion and pollution, cities are implementing **bike-sharing programs** and **car-sharing systems**. These solutions promote **sustainable commuting** and reduce the number of private cars on the road, making cities more walkable and bike-friendly.</p>
+
+        <a href="bikesharing.html">
+            <button> Bike-Sharing</button>
+        </a>        
+        <div id="bike-share-info" style="display:none;">
+            <p>Bike-sharing programs allow people to rent bikes for short trips around the city. These programs reduce traffic congestion, promote exercise, and are an environmentally-friendly alternative to driving. Bikes are typically available at docking stations throughout the city, and users can pick them up and drop them off at different locations.</p>
+        </div>
+
+        <h3>Intelligent Traffic Management</h3>
+        <p>Smart cities use **AI-powered traffic management systems** to reduce congestion. These systems collect real-time data from sensors and traffic cameras, adjusting traffic light patterns based on traffic flow. In addition, cities are implementing **smart parking** solutions that guide drivers to available parking spaces in real time.</p>
+
+        <h3>Integrated Mobility Platforms</h3>
+        <p>To further optimize transportation, many smart cities offer **mobility-as-a-service (MaaS)** platforms, which integrate public transport, bike-sharing, car rentals, and more into a single app. This allows users to plan their journeys, pay for tickets, and receive updates, all from a single platform.</p>
+        
+        <a href="Mobility-as-a-Service.html">
+            <button> MaaS (Mobility-as-a-Service)</button>
+        </a>    
+        <div id="maas-info" style="display:none;">
+            <p>Mobility-as-a-Service (MaaS) platforms bring together various transportation services such as buses, trains, taxis, and shared vehicles into one seamless app. Users can access these services based on their travel needs, and pay through a single payment system, making transportation more convenient and sustainable.</p>
+        </div>
+
+    </section>
+    <br>
+    <br>     
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
