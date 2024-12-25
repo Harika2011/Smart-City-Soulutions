@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analítica de Datos en la Planificación Urbana | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    <section>
+        <h2>Analítica de Datos en la Planificación Urbana</h2>
+        <p>La analítica de datos es un componente clave en la planificación urbana moderna. Al analizar grandes conjuntos de datos provenientes de diversas fuentes como dispositivos IoT, sistemas de transporte y sensores ambientales, las ciudades pueden tomar decisiones basadas en datos que mejoren la eficiencia, sostenibilidad y calidad de vida de los residentes. A continuación, se describe cómo se utiliza la analítica de datos en la planificación urbana:</p>
+
+        <h3>¿Qué es la Analítica de Datos en la Planificación Urbana?</h3>
+        <p>La analítica de datos en la planificación urbana implica el uso de herramientas y técnicas avanzadas para analizar datos recopilados de varios sistemas urbanos. Al procesar e interpretar estos datos, los planificadores urbanos pueden obtener información valiosa que ayuda a dar forma al desarrollo de la ciudad, mejorar la gestión de los recursos y aumentar la participación de los ciudadanos.</p>
+
+        <h3>Principales Aplicaciones de la Analítica de Datos en la Planificación Urbana</h3>
+        <ul>
+            <li><strong>Análisis de Tráfico y Movilidad:</strong> Al analizar los datos de tráfico, los planificadores urbanos pueden optimizar las redes viales, mejorar las rutas de transporte público y reducir la congestión en las ciudades.</li>
+            <li><strong>Uso del Suelo y Zonificación:</strong> La analítica de datos ayuda a los planificadores a tomar decisiones informadas sobre el uso del suelo, las regulaciones de zonificación y cómo asignar espacio para áreas residenciales, comerciales y verdes.</li>
+            <li><strong>Sostenibilidad Ambiental:</strong> Los datos de los sensores ambientales se pueden utilizar para monitorear la calidad del aire, la gestión de residuos y el consumo de agua para promover un desarrollo urbano más sostenible.</li>
+            <li><strong>Tendencias Sociales y Salud Pública:</strong> Al analizar los datos demográficos y las estadísticas de salud, los planificadores pueden diseñar mejores iniciativas de salud pública, optimizar el acceso a los servicios y abordar las desigualdades sociales.</li>
+            <li><strong>Infraestructura Inteligente:</strong> La analítica de datos ayuda en el diseño y la gestión de infraestructuras inteligentes, incluidos edificios inteligentes, sistemas de eficiencia energética y redes eléctricas inteligentes.</li>
+        </ul>
+
+        <h3>Beneficios de la Analítica de Datos en la Planificación Urbana</h3>
+        <ul>
+            <li><strong>Toma de Decisiones Informada:</strong> Los datos permiten a los planificadores urbanos tomar decisiones basadas en información en tiempo real, mejorando la precisión y efectividad de sus estrategias.</li>
+            <li><strong>Mayor Eficiencia:</strong> Los enfoques basados en datos optimizan el uso de recursos y agilizan los procesos de planificación urbana.</li>
+            <li><strong>Mejor Participación Ciudadana:</strong> El análisis de datos sobre preferencias y necesidades públicas puede llevar a una planificación urbana más inclusiva y mejor participación de los ciudadanos.</li>
+            <li><strong>Planificación Predictiva:</strong> La analítica de datos permite a los planificadores predecir tendencias futuras, como el crecimiento de la población o las necesidades de transporte, y planificar en consecuencia.</li>
+            <li><strong>Ahorro de Costos:</strong> Al optimizar la gestión de recursos y el desarrollo de infraestructura, la analítica de datos puede reducir los costos y mejorar la eficiencia presupuestaria de los proyectos de planificación urbana.</li>
+        </ul>
+
+        <h3>Desafíos y Consideraciones</h3>
+        <p>Si bien la analítica de datos ofrece enormes oportunidades para mejorar la planificación urbana, también existen desafíos, como las preocupaciones sobre la privacidad y seguridad de los datos, la necesidad de una gobernanza adecuada de los datos y el potencial de sesgo en la toma de decisiones algorítmica. Es esencial que las ciudades desarrollen marcos éticos y políticas para garantizar el uso responsable de los datos en la planificación urbana.</p>
+
+        <h3>El Futuro de la Analítica de Datos en la Planificación Urbana</h3>
+        <p>El futuro de la analítica de datos en la planificación urbana es prometedor. Con los avances en IA, aprendizaje automático y big data, las ciudades podrán tomar decisiones aún más precisas y efectivas. La analítica de datos jugará un papel crucial en la construcción de ciudades más inteligentes, sostenibles y habitables en el futuro.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
