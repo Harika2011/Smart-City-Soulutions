@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how smart cities integrate sustainability through energy efficiency, waste management, and water conservation.">
+    <title>Sustainability | Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Expanded padding for size increase */
+            background-image: url('3.png'); /* Background image */
+            background-size: cover; /* Cover entire header */
+            background-position: center; /* Center the image */
+            color: white; /* Ensure text is visible */
+            text-shadow: 1px 1px 2px black; /* Add shadow for text clarity */
+            height: 200px; /* Adjust height as needed */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        form select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    <!-- Improved Content Section -->
+    <main>
+        <section>
+            <h2>Sustainability in Smart Cities</h2>
+            <p>Sustainability is at the core of smart city development, with the aim of creating environmentally friendly, energy-efficient, and resource-conserving urban environments. By utilizing advanced technology and data analytics, cities are adopting strategies that reduce carbon footprints and enhance the quality of life for their residents. Here are the key areas where smart cities are driving sustainability:</p>
+            
+            <!-- Subsections with more specific content -->
+            <article>
+                <h3>Energy Efficiency</h3>
+                <p>Smart buildings and infrastructure in cities utilize cutting-edge technology to optimize energy use. Renewable energy sources, such as solar and wind power, are integrated into the grid to reduce dependence on fossil fuels. Smart buildings are equipped with energy-efficient HVAC systems, solar panels, and advanced insulation, which significantly reduce energy consumption. Furthermore, smart lighting systems automatically adjust brightness based on real-time environmental conditions, reducing electricity consumption and costs.</p>
+                
+                <h4>Key Technologies in Energy Efficiency:</h4>
+                <ul>
+                    <li><strong>Solar Panels:</strong> Harnessing solar energy to power buildings and streetlights.</li>
+                    <li><strong>Smart Grids:</strong> Optimizing energy distribution and integrating renewable sources efficiently.</li>
+                    <li><strong>Energy Management Systems:</strong> Using sensors and AI to monitor and manage energy consumption in real time.</li>
+                    <li><strong>LED Streetlights:</strong> Energy-efficient lighting that adjusts based on time of day and pedestrian traffic.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Waste Management</h3>
+                <p>Smart waste management systems use IoT-enabled sensors to monitor trash levels in bins and dumpsters. This data is sent to municipal waste management services to optimize the collection schedules and routes, reducing fuel consumption and minimizing truck traffic. Additionally, sensors help track the type and quantity of waste to ensure more effective recycling. Cities are also implementing waste-to-energy technologies that convert non-recyclable waste into usable energy.</p>
+                
+                <h4>Key Approaches to Waste Management:</h4>
+                <ul>
+                    <li><strong>Smart Bins:</strong> Waste bins with sensors to detect when they are full and send notifications for collection.</li>
+                    <li><strong>Recycling Programs:</strong> Enhanced sorting of recyclable materials through automated systems in smart bins.</li>
+                    <li><strong>Waste-to-Energy:</strong> Converting non-recyclable waste into electricity or heat.</li>
+                    <li><strong>Data-Driven Collection:</strong> Optimizing collection routes and schedules through data analytics to reduce emissions.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Water Conservation</h3>
+                <p>With water becoming an increasingly scarce resource, smart cities are taking proactive measures to conserve and manage water usage. Rainwater harvesting systems are being implemented in urban areas to capture and store rainwater for non-potable uses like irrigation and cooling. Additionally, IoT-enabled smart irrigation systems automatically adjust water use based on weather patterns and soil moisture levels, ensuring that water is used efficiently and only when necessary.</p>
+                
+                <h4>Key Water Conservation Strategies:</h4>
+                <ul>
+                    <li><strong>Rainwater Harvesting:</strong> Collecting and storing rainwater for irrigation and other non-potable purposes.</li>
+                    <li><strong>Smart Irrigation Systems:</strong> Using sensors and weather forecasts to optimize water usage for landscaping.</li>
+                    <li><strong>Water Leak Detection:</strong> Implementing IoT sensors in water pipes to detect leaks early and prevent wastage.</li>
+                    <li><strong>Water Recycling:</strong> Reusing greywater from households for non-potable uses, reducing overall water demand.</li>
+                </ul>
+            </article>
+
+            <!-- New Section on Green Spaces -->
+            <article>
+                <h3>Green Spaces and Urban Agriculture</h3>
+                <p>Incorporating green spaces within urban areas is crucial for improving air quality, providing recreational spaces, and supporting biodiversity. Urban farming and community gardens are growing trends in smart cities, allowing residents to grow their own food locally. These initiatives help reduce the environmental impact of food transportation and promote healthier lifestyles.</p>
+                
+                <h4>Benefits of Green Spaces:</h4>
+                <ul>
+                    <li><strong>Air Quality Improvement:</strong> Plants absorb carbon dioxide and release oxygen, helping to mitigate pollution.</li>
+                    <li><strong>Biodiversity Support:</strong> Urban green spaces provide habitats for birds, insects, and other wildlife.</li>
+                    <li><strong>Temperature Regulation:</strong> Green roofs and walls reduce the urban heat island effect, keeping cities cooler.</li>
+                    <li><strong>Food Security:</strong> Urban agriculture promotes local food production and reduces dependency on global supply chains.</li>
+                </ul>
+            </article>
+
+            <!-- New Section on Sustainable Transportation -->
+            <article>
+                <h3>Sustainable Transportation</h3>
+                <p>Sustainable transportation is essential for reducing the environmental impact of urban mobility. Smart cities are adopting electric buses, bicycles, and car-sharing systems to encourage low-carbon travel options. Additionally, smart traffic management systems optimize traffic flow to reduce congestion and minimize fuel consumption.</p>
+                
+                <h4>Key Sustainable Transportation Strategies:</h4>
+                <ul>
+                    <li><strong>Electric Public Transit:</strong> Electrification of buses and trains reduces emissions and lowers operating costs.</li>
+                    <li><strong>Bicycle Sharing Systems:</strong> Promoting cycling as an eco-friendly, healthy alternative to cars.</li>
+                    <li><strong>Carpooling & Ride-Sharing:</strong> Reducing the number of single-occupancy vehicles on the road.</li>
+                    <li><strong>Smart Traffic Management:</strong> Using data to optimize traffic signals and reduce congestion.</li>
+                </ul>
+            </article>
+
+        </section>
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <!-- Enhanced Footer -->
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
