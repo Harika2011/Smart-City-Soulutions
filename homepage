@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="interactive.js" defer></script>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Expanded padding for size increase */
+            background-image: url('1.png'); /* Background image */
+            background-size: cover; /* Cover entire header */
+            background-position: center; /* Center the image */
+            color: white; /* Ensure text is visible */
+            text-shadow: 1px 1px 2px black; /* Add shadow for text clarity */
+            height: 200px; /* Adjust height as needed */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        form select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+
+
+    <section class="intro">
+        <h2>Welcome to Smart City Solutions</h2>
+        <p>Explore how smart technologies, sustainability efforts, and efficient transportation systems can transform cities.</p>
+    
+    
+    </section>
+
+    <section class="focus-areas">
+        <h3>Main Ideas</h3>
+        <ul>
+            <li>
+                <a href="sustainability.html" class="button">Sustainability</a>
+                - Eco-friendly solutions for a greener urban life.
+            </li>
+            <li>
+                <a href="transportation.html" class="button">Transportation</a>
+                - Smart systems for better mobility and reduced congestion.
+            </li>
+            <li>
+                <a href="technology.html" class="button">Technology</a>
+                - IoT, data analytics, and smart infrastructure to optimize urban living.
+            </li>
+        </ul>
+    </section>
+    <!-- Button for toggling information -->
+    <button id="toggleInfrastructureBtn">Toggle Smart Infrastructure Info</button>
+    
+    <!-- Hidden section for smart infrastructure details -->
+    <div id="infrastructureInfo" style="display:none;">
+        <p>This is some detailed information about Smart Infrastructure...</p>
+    </div>
+
+    <!-- Interactive map -->
+    <div id="interactiveMap" style="width:500px; height:300px; background-color: lightgrey;">
+        Click on the map to see coordinates.
+    </div>
+
+    <!-- Form with validation -->
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <button id="submitFormBtn" type="button">Submit</button>
+    </form>
+
+    <!-- Learn More Button for Modal -->
+    <button id="learnMoreBtn">Learn More</button>
+
+    <!-- Modal Popup -->
+    <div id="myModal" style="display:none;">
+        <div style="background-color: white; padding: 20px; border: 1px solid #ccc;">
+            <span id="closeModalBtn" style="cursor: pointer;">&times;</span>
+            <h2>Smart Cities Overview</h2>
+            <p>More information about smart cities...</p>
+        </div>
+    </div>
+
+    <!-- Dynamic content update -->
+    <button id="updateContentBtn">Update Content</button>
+    <div id="dynamicContent">
+    </div>
+
+    <br>
+    <br>
+    
+
+   
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
