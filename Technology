@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Button styles to match header */
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF; /* Same as header color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+        }
+        
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Expanded padding for size increase */
+            background-image: url('4.png'); /* Background image */
+            background-size: cover; /* Cover entire header */
+            background-position: center; /* Center the image */
+            color: white; /* Ensure text is visible */
+            text-shadow: 1px 1px 2px black; /* Add shadow for text clarity */
+            height: 200px; /* Adjust height as needed */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        form select {
+            padding: 5px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+
+    <section>
+        <h2>Technology in Smart Cities</h2>
+        <p>Technology plays a pivotal role in transforming cities into "smart cities." From Internet of Things (IoT) devices to Artificial Intelligence (AI) and data analytics, these innovations improve urban life by making cities more efficient, safe, and sustainable. Let's explore the key technologies powering smart cities:</p>
+
+        <h3>Internet of Things (IoT)</h3>
+        <p>The **Internet of Things (IoT)** connects devices and sensors throughout the city to collect and share data in real-time. Examples include smart streetlights that adjust based on traffic, **smart meters** for energy consumption, and **pollution sensors** that monitor air quality.</p>
+
+        <a href="iot.html">
+            <button> IoT</button>
+        </a>        <div id="iot-info" style="display:none;">
+            <p>IoT devices are embedded with sensors, software, and other technologies that allow them to collect and exchange data. In a smart city, IoT devices help with traffic management, environmental monitoring, public safety, and more. They make cities more responsive to the needs of citizens in real-time.</p>
+        </div>
+
+        <h3>Artificial Intelligence (AI) and Machine Learning (ML)</h3>
+        <p>**AI and Machine Learning** are used in smart cities for decision-making, predictive analytics, and optimizing resource management. AI helps in analyzing large sets of data collected by IoT devices, identifying patterns, and making real-time predictions.</p>
+
+        <a href="ai-in-smart-cities.html">
+            <button> AI in Smart Cities</button>
+        </a>
+                <div id="ai-info" style="display:none;">
+            <p>AI is used in various smart city applications such as autonomous vehicles, traffic prediction, energy management, and crime prediction. Machine learning algorithms help cities optimize resource allocation, forecast demand, and provide personalized services to residents.</p>
+        </div>
+
+        <h3>Smart Infrastructure</h3>
+        <p>**Smart infrastructure** includes buildings, roads, and public spaces that are equipped with sensors and connectivity to monitor and manage the use of resources. Examples include **smart grids** for electricity, **smart water systems**, and **intelligent transportation networks**.</p>
+
+        <a href="smart-infrastructure.html">
+            <button> Smart Infrastructure</button>
+        </a>
+                <div id="infrastructure-info" style="display:none;">
+            <p>Smart infrastructure includes connected technologies that enable cities to function efficiently and sustainably. For example, smart grids provide real-time data on energy usage, allowing for more efficient electricity distribution. Similarly, smart water systems detect leaks and optimize water usage, while intelligent transportation networks reduce congestion and improve traffic flow.</p>
+        </div>
+
+        <h3>Data Analytics and Urban Planning</h3>
+        <p>**Data analytics** plays a crucial role in urban planning and development. By analyzing data collected from IoT devices and other sources, cities can make informed decisions about infrastructure development, traffic management, and even public health strategies.</p>
+
+        <a href="data-analytics-urban-planning.html">
+            <button> Data Analytics in Urban Planning</button>
+        </a>
+                <div id="data-analytics-info" style="display:none;">
+            <p>Data analytics is used in urban planning to analyze trends and make predictions. For example, analyzing traffic data can help cities design better transport systems, while data on energy usage can inform sustainability initiatives. This data-driven approach allows cities to address problems more effectively and plan for future needs.</p>
+        </div>
+
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
