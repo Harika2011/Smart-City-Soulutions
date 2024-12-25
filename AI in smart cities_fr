@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA dans les Villes Intelligentes | Solutions de Villes Intelligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Villes Intelligentes</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisissez la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">Anglais</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Espagnol</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mettre à jour les liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction de changement de langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mettre à jour les liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou en anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    
+
+    <section>
+        <h2>Intelligence Artificielle (IA) dans les Villes Intelligentes</h2>
+        <p>L'Intelligence Artificielle (IA) révolutionne la vie urbaine en permettant aux villes de prendre de meilleures décisions basées sur les données en temps réel. Les technologies de l'IA, telles que l'apprentissage automatique (ML) et l'apprentissage profond, aident les villes à optimiser les ressources, améliorer les services et améliorer la qualité de vie. Voici comment l'IA est utilisée dans les villes intelligentes :</p>
+
+        <h3>Qu'est-ce que l'Intelligence Artificielle ?</h3>
+        <p>L'Intelligence Artificielle fait référence à des systèmes et des machines capables d'imiter l'intelligence humaine pour effectuer des tâches telles que la prise de décision, la résolution de problèmes et l'apprentissage à partir des données. Dans les villes intelligentes, l'IA est utilisée pour traiter de grandes quantités de données collectées à partir des dispositifs IoT, des capteurs et des caméras afin d'optimiser diverses fonctions urbaines.</p>
+
+        <h3>Applications clés de l'IA dans les Villes Intelligentes</h3>
+        <ul>
+            <li><strong>Gestion du Trafic :</strong> Les algorithmes de l'IA analysent les données de circulation en temps réel pour optimiser le flux de trafic, réduire la congestion et prédire les modèles de circulation.</li>
+            <li><strong>Gestion de l'Énergie Intelligente :</strong> L'IA aide à gérer la distribution de l'énergie en prédisant la demande et en optimisant l'utilisation des sources d'énergie renouvelables comme le solaire et l'éolien.</li>
+            <li><strong>Sécurité Publique :</strong> Les systèmes de surveillance alimentés par l'IA et les outils de police prédictive aident à améliorer la sécurité en identifiant les risques potentiels et en améliorant les temps de réponse des forces de l'ordre.</li>
+            <li><strong>Gestion des Déchets :</strong> Les technologies de l'IA optimisent les plannings de collecte des déchets en fonction des données en temps réel, assurant ainsi une utilisation efficace des ressources et réduisant l'impact environnemental.</li>
+            <li><strong>Santé :</strong> Les solutions alimentées par l'IA dans le secteur de la santé aident à gérer les dossiers médicaux, prédire les tendances sanitaires et optimiser l'allocation des ressources dans les hôpitaux et les cliniques.</li>
+        </ul>
+
+        <h3>Avantages de l'IA dans les Villes Intelligentes</h3>
+        <ul>
+            <li>Meilleure gestion des ressources et économies de coûts</li>
+            <li>Amélioration des services aux citoyens grâce à l'automatisation</li>
+            <li>Meilleure planification urbaine et prise de décision basée sur des données</li>
+            <li>Augmentation de la sécurité publique et réponses plus rapides aux urgences</li>
+            <li>Des villes plus durables grâce à une utilisation optimisée de l'énergie et à une gestion des déchets efficace</li>
+        </ul>
+
+        <h3>Défis et Considérations Éthiques</h3>
+        <p>Bien que l'IA offre de nombreux avantages, il existe des défis tels que les préoccupations concernant la confidentialité des données, le risque de biais algorithmique et la nécessité d'une réglementation appropriée. Les villes doivent garantir la transparence et l'équité dans les processus de prise de décision de l'IA pour assurer des résultats équitables et éthiques pour tous les citoyens.</p>
+
+        <h3>L'Avenir de l'IA dans les Villes Intelligentes</h3>
+        <p>À mesure que la technologie de l'IA continue d'évoluer, son impact sur les villes intelligentes ne fera qu'augmenter. Des véhicules autonomes aux soins de santé prédictifs, l'IA jouera un rôle crucial pour rendre les villes plus efficaces, durables et vivables pour les générations futures.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Villes Intelligentes de Harika.</p>
+    </footer>
+
+</body>
+</html>
