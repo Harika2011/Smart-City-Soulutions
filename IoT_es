@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet de las Cosas (IoT) | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    <section>
+        <h2>Internet de las Cosas (IoT) en Ciudades Inteligentes</h2>
+        <p>El Internet de las Cosas (IoT) está transformando las ciudades al conectar dispositivos, sensores y sistemas para recolectar y compartir datos en tiempo real. Esta conectividad permite una gestión más inteligente de los recursos y servicios, mejorando la eficiencia, sostenibilidad y calidad de vida urbana. Exploremos cómo se utiliza IoT en las ciudades inteligentes:</p>
+
+        <h3>¿Qué es IoT?</h3>
+        <p>IoT se refiere a una red de objetos físicos equipados con sensores, software y otras tecnologías que les permiten recolectar e intercambiar datos. En una ciudad inteligente, los dispositivos IoT se integran en la infraestructura para monitorear y gestionar todo, desde el tráfico hasta la calidad del aire, la iluminación de las calles y la gestión de residuos.</p>
+
+        <h3>Principales Aplicaciones de IoT en Ciudades Inteligentes</h3>
+        <ul>
+            <li><strong>Iluminación Callejera Inteligente:</strong> Las luces de calle habilitadas con IoT ajustan su brillo según los datos en tiempo real, reduciendo el consumo de energía y mejorando la seguridad pública.</li>
+            <li><strong>Gestión Inteligente de Residuos:</strong> Los sensores en los contenedores de basura notifican a los servicios de la ciudad cuando están llenos, optimizando las rutas de recolección y reduciendo viajes innecesarios.</li>
+            <li><strong>Gestión del Tráfico:</strong> Los sensores IoT en los semáforos y vehículos proporcionan datos en tiempo real para optimizar el flujo del tráfico y reducir la congestión.</li>
+            <li><strong>Monitoreo Ambiental:</strong> Los dispositivos IoT pueden rastrear la calidad del aire, la temperatura y los niveles de ruido, ayudando a las ciudades a tomar medidas proactivas para mejorar los entornos urbanos.</li>
+        </ul>
+
+        <h3>Beneficios de IoT en Ciudades Inteligentes</h3>
+        <ul>
+            <li>Mayor eficiencia en los servicios públicos (por ejemplo, energía, agua, gestión de residuos)</li>
+            <li>Reducción de costos operativos y desperdicio de recursos</li>
+            <li>Mayor seguridad a través de sistemas de vigilancia inteligentes</li>
+            <li>Mejor calidad de vida para los residentes debido a operaciones optimizadas de la ciudad</li>
+        </ul>
+
+        <h3>Desafíos y Consideraciones</h3>
+        <p>Aunque IoT tiene muchos beneficios, existen desafíos, como garantizar la privacidad y seguridad de los datos, gestionar el enorme volumen de datos generados y asegurar la interoperabilidad entre diferentes sistemas y dispositivos.</p>
+    </section>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
