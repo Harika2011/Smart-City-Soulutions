@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्मार्ट सिटी समाधान</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="interactive.js" defer></script>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>स्मार्ट सिटी समाधान</h1>
+        <nav aria-label="मुख्य नेविगेशन">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">भाषा चुनें</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi" selected>हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+
+            if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    
+    <section id="hero">
+        <img src="1.png"
+             style="width: 20%; height: 20%; display: block;">
+        <div style="text-align: center; margin-top: -50px;">
+            <h2 style="color: rgb(239, 239, 239); background: rgba(0, 38, 71, 0.5); display: inline-block; padding: 10px 20px; border-radius: 10px;">
+                स्मार्ट सिटी का भविष्य में स्वागत है
+            </h2>
+        </div>
+    </section>
+    
+    <section class="intro">
+        <h2>स्मार्ट सिटी समाधान में आपका स्वागत है</h2>
+        <p>स्मार्ट प्रौद्योगिकियों, स्थिरता के प्रयासों और कुशल परिवहन प्रणालियों से शहरों को कैसे बदल सकते हैं, यह जानें।</p>
+    </section>
+
+    <section class="focus-areas">
+        <h3>मुख्य विचार</h3>
+        <ul>
+            <li>
+                <a href="sustainability_hi.html" class="button">स्थिरता</a>
+                - हरित शहरी जीवन के लिए पर्यावरण-अनुकूल समाधान।
+            </li>
+            <li>
+                <a href="transportation_hi.html" class="button">परिवहन</a>
+                - बेहतर गतिशीलता और कम भीड़भाड़ के लिए स्मार्ट प्रणाली।
+            </li>
+            <li>
+                <a href="technology_hi.html" class="button">प्रौद्योगिकी</a>
+                - शहरी जीवन को अनुकूलित करने के लिए IoT, डेटा एनालिटिक्स और स्मार्ट इन्फ्रास्ट्रक्चर।
+            </li>
+        </ul>
+    </section>
+
+    <!-- Button for toggling information -->
+    <button id="toggleInfrastructureBtn">स्मार्ट इन्फ्रास्ट्रक्चर जानकारी टॉगल करें</button>
+    
+    <!-- Hidden section for smart infrastructure details -->
+    <div id="infrastructureInfo" style="display:none;">
+        <p>स्मार्ट इन्फ्रास्ट्रक्चर के बारे में विस्तृत जानकारी यहां...</p>
+    </div>
+
+    <!-- Interactive map -->
+    <div id="interactiveMap" style="width:500px; height:300px; background-color: lightgrey;">
+        मानचित्र पर क्लिक करें और निर्देशांक देखें।
+    </div>
+
+    <!-- Form with validation -->
+    <form id="myForm">
+        <input type="text" id="name" placeholder="नाम">
+        <input type="email" id="email" placeholder="ईमेल">
+        <button id="submitFormBtn" type="button">जमा करें</button>
+    </form>
+
+    <!-- Learn More Button for Modal -->
+    <button id="learnMoreBtn">अधिक जानें</button>
+
+    <!-- Modal Popup -->
+    <div id="myModal" style="display:none;">
+        <div style="background-color: white; padding: 20px; border: 1px solid #ccc;">
+            <span id="closeModalBtn" style="cursor: pointer;">&times;</span>
+            <h2>स्मार्ट सिटी अवलोकन</h2>
+            <p>स्मार्ट सिटी के बारे में अधिक जानकारी...</p>
+        </div>
+    </div>
+
+    <!-- Dynamic content update -->
+    <button id="updateContentBtn">सामग्री अपडेट करें</button>
+    <div id="dynamicContent">
+        
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <footer>
+        <p>&copy; हरिका के स्मार्ट सिटी समाधान।</p>
+    </footer>
+
+</body>
+</html>
