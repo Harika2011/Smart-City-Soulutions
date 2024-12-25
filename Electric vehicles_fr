@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Véhicules électriques | Solutions de Ville Intelligente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Ville Intelligente</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisir la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mise à jour des liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction pour changer la langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mise à jour des liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    <section>
+        <h2>Véhicules électriques dans les Villes Intelligentes</h2>
+        <p>Les véhicules électriques (VE) révolutionnent notre façon de concevoir le transport. Ils sont respectueux de l'environnement, économiques et jouent un rôle clé dans la réduction de la pollution de l'air urbain. Voici comment les VE s'intègrent dans la vision de la ville intelligente :</p>
+
+        <h3>Qu'est-ce qu'un véhicule électrique ?</h3>
+        <p>Les véhicules électriques fonctionnent entièrement à l'électricité, utilisant des batteries comme source d'énergie. Contrairement aux véhicules traditionnels, ils ne produisent aucune émission, ce qui en fait une alternative propre aux voitures à essence.</p>
+
+        <h3>Avantages des véhicules électriques</h3>
+        <ul>
+            <li>Les émissions nulles réduisent la pollution et améliorent la qualité de l'air.</li>
+            <li>Des coûts d'exploitation inférieurs par rapport aux véhicules à essence.</li>
+            <li>Un fonctionnement silencieux réduit la pollution sonore dans les villes.</li>
+            <li>Peuvent être intégrés aux réseaux intelligents et aux sources d'énergie renouvelable.</li>
+        </ul>
+
+        <h3>Infrastructures de VE dans les Villes Intelligentes</h3>
+        <p>Dans les villes intelligentes, l'infrastructure de recharge est essentielle pour l'adoption généralisée des véhicules électriques. Les villes installent des **stations de recharge publiques**, développent des **réseaux de recharge rapide** et créent des **réseaux intelligents** pour soutenir les véhicules électriques, garantissant qu'ils sont pratiques et fiables pour une utilisation quotidienne.</p>
+
+        <h3>L'avenir des véhicules électriques</h3>
+        <p>À mesure que la technologie des batteries s'améliore et que l'infrastructure continue de se développer, les véhicules électriques deviendront encore plus accessibles, rendant les villes plus propres, plus silencieuses et plus durables.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Ville Intelligente de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
