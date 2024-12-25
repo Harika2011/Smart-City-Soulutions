@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infraestructura Inteligente | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    <section>
+        <h2>Infraestructura Inteligente en Ciudades Inteligentes</h2>
+        <p>La infraestructura inteligente se refiere a la integración de tecnologías avanzadas en la infraestructura urbana para mejorar su rendimiento, eficiencia y sostenibilidad. Incluye todo, desde redes de energía hasta sistemas de transporte y edificios, todos equipados con sensores, redes de comunicación y sistemas basados en datos.</p>
+
+        <h3>¿Qué es la Infraestructura Inteligente?</h3>
+        <p>La infraestructura inteligente utiliza dispositivos IoT (Internet de las Cosas), sensores y análisis de datos para crear sistemas interconectados que permiten la monitorización en tiempo real y la optimización de recursos y servicios. El objetivo es crear entornos urbanos más eficientes, sostenibles y resilientes.</p>
+
+        <h3>Componentes Clave de la Infraestructura Inteligente</h3>
+        <ul>
+            <li><strong>Redes Inteligentes:</strong> Redes de energía avanzadas que utilizan datos en tiempo real para optimizar la distribución de energía, reducir desperdicios e integrar fuentes de energía renovables.</li>
+            <li><strong>Sistemas de Transporte Inteligente:</strong> Sistemas habilitados por IoT para monitoreo del tráfico, vehículos autónomos y soluciones de estacionamiento inteligente.</li>
+            <li><strong>Edificios Inteligentes:</strong> Edificios equipados con sistemas energéticamente eficientes, como iluminación, calefacción y refrigeración, controlados a través de sensores y automatización.</li>
+            <li><strong>Gestión Inteligente del Agua:</strong> Dispositivos IoT utilizados para monitorear y gestionar la distribución y calidad del agua, reduciendo desperdicios y asegurando un uso sostenible del agua.</li>
+            <li><strong>Gestión Inteligente de Residuos:</strong> Contenedores de basura equipados con sensores que notifican a los equipos de recolección cuando están llenos, mejorando la eficiencia y reduciendo los costos operativos.</li>
+        </ul>
+
+        <h3>Beneficios de la Infraestructura Inteligente</h3>
+        <ul>
+            <li>Eficiencia operativa mejorada a través de la automatización y la toma de decisiones basada en datos.</li>
+            <li>Reducción del consumo de energía y el desperdicio de recursos.</li>
+            <li>Mejora de la sostenibilidad y el impacto ambiental mediante la optimización del uso de energía, la gestión del agua y los residuos.</li>
+            <li>Aumento de la seguridad pública a través de sistemas inteligentes de monitoreo (por ejemplo, cámaras de vigilancia, gestión del tráfico).</li>
+            <li>Mejor resiliencia frente a desastres naturales o fallos de infraestructura mediante mantenimiento proactivo y análisis predictivo.</li>
+        </ul>
+
+        <h3>Desafíos y Consideraciones</h3>
+        <p>Si bien la infraestructura inteligente ofrece numerosas ventajas, también presenta desafíos. Estos incluyen preocupaciones sobre la privacidad de los datos, riesgos de ciberseguridad, el costo de actualizar la infraestructura existente y la necesidad de marcos regulatorios sólidos para asegurar una implementación equitativa y ética.</p>
+
+        <h3>El Futuro de la Infraestructura Inteligente</h3>
+        <p>A medida que las ciudades continúan creciendo y conectándose, el papel de la infraestructura inteligente solo aumentará. Las tecnologías emergentes como el 5G, la IA y la blockchain mejorarán las capacidades de la infraestructura inteligente, permitiendo que las ciudades se vuelvan más eficientes, resilientes y sostenibles.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
