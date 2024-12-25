@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="जानिए कैसे स्मार्ट शहर ऊर्जा दक्षता, कचरा प्रबंधन, और जल संरक्षण के माध्यम से स्थिरता को एकीकृत करते हैं।">
+    <title>स्थिरता | स्मार्ट सिटी सॉल्यूशन्स</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>स्मार्ट सिटी समाधान</h1>
+        <nav aria-label="मुख्य नेविगेशन">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">भाषा चुनें</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi" selected>हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+
+            if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <!-- Improved Content Section -->
+    <main>
+        <section>
+            <h2>स्मार्ट शहरों में स्थिरता</h2>
+            <p>स्थिरता स्मार्ट शहरों के विकास का मूल है, जिसका उद्देश्य पर्यावरण के अनुकूल, ऊर्जा दक्ष और संसाधन-संवर्धन शहरी वातावरण बनाना है। उन्नत तकनीक और डेटा विश्लेषण का उपयोग करते हुए, शहर कार्बन पदचिह्न को कम करने और अपने निवासियों के जीवन की गुणवत्ता को बढ़ाने के लिए रणनीतियाँ अपना रहे हैं। यहां वे प्रमुख क्षेत्र हैं जहाँ स्मार्ट शहर स्थिरता की दिशा में प्रयास कर रहे हैं:</p>
+            
+            <!-- Subsections with more specific content -->
+            <article>
+                <h3>ऊर्जा दक्षता</h3>
+                <p>शहरों में स्मार्ट भवन और अवसंरचना ऊर्जा उपयोग को अनुकूलित करने के लिए अत्याधुनिक तकनीक का उपयोग करते हैं। नवीकरणीय ऊर्जा स्रोत, जैसे कि सौर और पवन ऊर्जा, को ग्रिड में एकीकृत किया गया है ताकि जीवाश्म ईंधन पर निर्भरता कम हो सके। स्मार्ट भवनों में ऊर्जा दक्ष HVAC सिस्टम, सौर पैनल और उन्नत इंसुलेशन होते हैं, जो ऊर्जा खपत को महत्वपूर्ण रूप से कम करते हैं। इसके अतिरिक्त, स्मार्ट लाइटिंग सिस्टम वास्तविक समय की पर्यावरणीय स्थितियों के आधार पर ब्राइटनेस को स्वचालित रूप से समायोजित करते हैं, जिससे बिजली की खपत और लागत कम होती है।</p>
+                
+                <h4>ऊर्जा दक्षता में प्रमुख तकनीकें:</h4>
+                <ul>
+                    <li><strong>सौर पैनल:</strong> सौर ऊर्जा का उपयोग करके भवनों और स्ट्रीटलाइट्स को शक्ति प्रदान करना।</li>
+                    <li><strong>स्मार्ट ग्रिड:</strong> ऊर्जा वितरण को अनुकूलित करना और नवीकरणीय स्रोतों को प्रभावी ढंग से एकीकृत करना।</li>
+                    <li><strong>ऊर्जा प्रबंधन प्रणाली:</strong> वास्तविक समय में ऊर्जा खपत की निगरानी और प्रबंधन के लिए सेंसर और एआई का उपयोग करना।</li>
+                    <li><strong>LED स्ट्रीटलाइट्स:</strong> ऊर्जा दक्ष लाइटिंग जो दिन के समय और पैदल यात्री यातायात के आधार पर समायोजित होती है।</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>कचरा प्रबंधन</h3>
+                <p>स्मार्ट कचरा प्रबंधन प्रणालियाँ IoT-सक्षम सेंसर का उपयोग करके बिनों और डंपस्टरों में कचरे के स्तर की निगरानी करती हैं। यह डेटा नगर निगम कचरा प्रबंधन सेवाओं को भेजा जाता है ताकि संग्रहण कार्यक्रम और मार्गों को अनुकूलित किया जा सके, जिससे ईंधन की खपत कम होती है और ट्रक यातायात में कमी आती है। इसके अतिरिक्त, सेंसर कचरे के प्रकार और मात्रा को ट्रैक करने में मदद करते हैं ताकि अधिक प्रभावी रूप से पुनर्चक्रण सुनिश्चित किया जा सके। शहर कचरे से ऊर्जा बनाने की तकनीकों को भी लागू कर रहे हैं, जो अप्रयुक्त कचरे को उपयोगी ऊर्जा में परिवर्तित करती हैं।</p>
+                
+                <h4>कचरा प्रबंधन के प्रमुख दृष्टिकोण:</h4>
+                <ul>
+                    <li><strong>स्मार्ट बिन:</strong> कचरा बिन जिनमें सेंसर होते हैं जो यह पता लगाते हैं कि वे कब भर गए हैं और संग्रहण के लिए सूचनाएँ भेजते हैं।</li>
+                    <li><strong>पुनर्चक्रण कार्यक्रम:</strong> स्मार्ट बिनों में स्वचालित प्रणालियों के माध्यम से पुनर्चक्रण योग्य सामग्रियों का बेहतर विभाजन।</li>
+                    <li><strong>कचरे से ऊर्जा:</strong> अप्रयुक्त कचरे को बिजली या गर्मी में बदलना।</li>
+                    <li><strong>डेटा-आधारित संग्रहण:</strong> कलेक्शन मार्गों और कार्यक्रमों को अनुकूलित करना, जिससे उत्सर्जन में कमी आती है।</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>जल संरक्षण</h3>
+                <p>जल एक सीमित संसाधन बनता जा रहा है, और स्मार्ट शहर जल उपयोग को संरक्षित और प्रबंधित करने के लिए सक्रिय कदम उठा रहे हैं। वर्षा जल संचयन प्रणालियाँ शहरी क्षेत्रों में लागू की जा रही हैं ताकि जल संचय किया जा सके और इसे सिंचाई और शीतलन जैसे गैर-पीने के उद्देश्यों के लिए प्रयोग किया जा सके। इसके अतिरिक्त, IoT-सक्षम स्मार्ट सिंचाई प्रणालियाँ मौसम पैटर्न और मृदा आर्द्रता स्तर के आधार पर जल उपयोग को स्वचालित रूप से समायोजित करती हैं, यह सुनिश्चित करते हुए कि जल का उपयोग केवल तभी किया जाए जब आवश्यकता हो।</p>
+                
+                <h4>जल संरक्षण की प्रमुख रणनीतियाँ:</h4>
+                <ul>
+                    <li><strong>वर्षा जल संचयन:</strong> सिंचाई और अन्य गैर-पीने के उद्देश्यों के लिए वर्षा जल एकत्र करना और संग्रहित करना।</li>
+                    <li><strong>स्मार्ट सिंचाई प्रणालियाँ:</strong> मृदा आर्द्रता और मौसम पूर्वानुमान के आधार पर जल उपयोग को अनुकूलित करना।</li>
+                    <li><strong>जल रिसाव पहचान:</strong> जल पाइपों में सेंसर लागू करना ताकि रिसाव जल्दी से पहचाने जा सकें और पानी की बर्बादी रोकी जा सके।</li>
+                    <li><strong>जल पुनर्चक्रण:</strong> घरेलू पानी को गैर-पीने के उपयोग के लिए पुनः उपयोग करना, जिससे जल की कुल मांग में कमी आती है।</li>
+                </ul>
+            </article>
+
+            <!-- New Section on Green Spaces -->
+            <article>
+                <h3>हरा-भरा क्षेत्र और शहरी कृषि</h3>
+                <p>शहरी क्षेत्रों में हरे-भरे स्थानों को शामिल करना वायु गुणवत्ता सुधारने, मनोरंजन के स्थान प्रदान करने और जैव विविधता का समर्थन करने के लिए महत्वपूर्ण है। शहरी कृषि और सामुदायिक बागबानी स्मार्ट शहरों में बढ़ती प्रवृत्तियाँ हैं, जो निवासियों को स्थानीय रूप से अपना खाना उगाने की अनुमति देती हैं। इन पहलों से खाद्य परिवहन का पर्यावरणीय प्रभाव कम होता है और स्वस्थ जीवनशैली को बढ़ावा मिलता है।</p>
+                
+                <h4>हरे-भरे स्थानों के लाभ:</h4>
+                <ul>
+                    <li><strong>वायु गुणवत्ता सुधार:</strong> पौधे कार्बन डाइऑक्साइड को अवशोषित करते हैं और ऑक्सीजन छोड़ते हैं, जिससे प्रदूषण को कम करने में मदद मिलती है।</li>
+                    <li><strong>जैव विविधता का समर्थन:</strong> शहरी हरे-भरे स्थानों में पक्षियों, कीड़ों और अन्य वन्यजीवों के लिए आवास प्रदान किए जाते हैं।</li>
+                    <li><strong>तापमान नियंत्रण:</strong> हरे-भरे छत और दीवारें शहरी गर्मी द्वीप प्रभाव को कम करती हैं, जिससे शहर ठंडे रहते हैं।</li>
+                    <li><strong>खाद्य सुरक्षा:</strong> शहरी कृषि स्थानीय खाद्य उत्पादन को बढ़ावा देती है और वैश्विक आपूर्ति श्रृंखलाओं पर निर्भरता को कम करती है।</li>
+                </ul>
+            </article>
+
+            <!-- New Section on Sustainable Transportation -->
+            <article>
+                <h3>स्थिर परिवहन</h3>
+                <p>स्थिर परिवहन शहरी गतिशीलता के पर्यावरणीय प्रभाव को कम करने के लिए आवश्यक है। स्मार्ट शहर इलेक्ट्रिक बसों, साइकिलों और कार-शेयरिंग प्रणालियों को बढ़ावा दे रहे हैं ताकि कम-कार्बन यात्रा विकल्पों को प्रोत्साहित किया जा सके। इसके अतिरिक्त, स्मार्ट ट्रैफिक प्रबंधन प्रणालियाँ ट्रैफिक प्रवाह को अनुकूलित करती हैं, जिससे भीड़-भाड़ कम होती है और ईंधन की खपत घटती है।</p>
+                
+                <h4>स्थिर परिवहन रणनीतियाँ:</h4>
+                <ul>
+                    <li><strong>इलेक्ट्रिक पब्लिक ट्रांजिट:</strong> बसों और ट्रेनों को विद्युतीकरण करना, जिससे उत्सर्जन में कमी आती है और संचालन लागत कम होती है।</li>
+                    <li><strong>साइकिल शेयरिंग सिस्टम:</strong> साइकिल को एक पर्यावरणीय रूप से अनुकूल, स्वस्थ विकल्प के रूप में बढ़ावा देना।</li>
+                    <li><strong>कारपूलिंग और राइड-शेयरिंग:</strong> सिंगल-ओक्यूपेंसी वाहनों की संख्या को कम करना।</li>
+                    <li><strong>स्मार्ट ट्रैफिक प्रबंधन:</strong> डेटा का उपयोग करके ट्रैफिक सिग्नल को अनुकूलित करना और भीड़-भाड़ को कम करना।</li>
+                </ul>
+            </article>
+
+        </section>
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <!-- Enhanced Footer -->
+    <footer>
+        <p>&copy; हरिका की स्मार्ट सिटी सॉल्यूशन्स।&copy;</p>
+    </footer>
+
+</body>
+</html>
