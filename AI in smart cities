@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Smart Cities | Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+    
+
+    <section>
+        <h2>Artificial Intelligence (AI) in Smart Cities</h2>
+        <p>Artificial Intelligence (AI) is revolutionizing urban life by enabling cities to make better, data-driven decisions in real-time. AI technologies, such as machine learning (ML) and deep learning, are helping cities optimize resources, improve services, and enhance quality of life. Here’s how AI is used in smart cities:</p>
+
+        <h3>What is Artificial Intelligence?</h3>
+        <p>Artificial Intelligence refers to systems and machines that can mimic human intelligence to perform tasks such as decision-making, problem-solving, and learning from data. In smart cities, AI is used to process large amounts of data collected from IoT devices, sensors, and cameras to optimize various urban functions.</p>
+
+        <h3>Key Applications of AI in Smart Cities</h3>
+        <ul>
+            <li><strong>Traffic Management:</strong> AI algorithms analyze real-time traffic data to optimize traffic flow, reduce congestion, and predict traffic patterns.</li>
+            <li><strong>Smart Energy Management:</strong> AI helps in managing energy distribution by predicting demand and optimizing the use of renewable energy sources like solar and wind.</li>
+            <li><strong>Public Safety:</strong> AI-powered surveillance systems and predictive policing tools help improve safety by identifying potential risks and enhancing law enforcement response times.</li>
+            <li><strong>Waste Management:</strong> AI technologies optimize waste collection schedules based on real-time data, ensuring efficient use of resources and reducing environmental impact.</li>
+            <li><strong>Healthcare:</strong> AI-driven solutions in healthcare help manage medical records, predict health trends, and optimize resource allocation in hospitals and clinics.</li>
+        </ul>
+
+        <h3>Benefits of AI in Smart Cities</h3>
+        <ul>
+            <li>Improved resource management and cost savings</li>
+            <li>Enhanced citizen services through automation</li>
+            <li>Better urban planning and decision-making based on data insights</li>
+            <li>Increased public safety and quicker emergency response</li>
+            <li>More sustainable cities through optimized energy usage and waste management</li>
+        </ul>
+
+        <h3>Challenges and Ethical Considerations</h3>
+        <p>While AI offers many benefits, there are challenges such as data privacy concerns, the risk of algorithmic bias, and the need for proper regulation. Cities must ensure transparency and fairness in AI decision-making processes to ensure equitable and ethical outcomes for all citizens.</p>
+
+        <h3>The Future of AI in Smart Cities</h3>
+        <p>As AI technology continues to evolve, its impact on smart cities will only increase. From autonomous vehicles to predictive healthcare, AI will play a crucial role in making cities more efficient, sustainable, and livable for future generations.</p>
+        <button onclick="window.location.href='technology.html'" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Back to Technology</button>
+    
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
