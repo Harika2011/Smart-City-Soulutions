@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des Données dans la Planification Urbaine | Solutions de Villes Intelligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Solutions de Villes Intelligentes</h1>
+        <nav aria-label="Navigation principale">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Les liens de navigation seront mis à jour dynamiquement -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choisissez la langue</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english">Anglais</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french" selected>Français</option>
+                <option value="spanish">Espagnol</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Fonction pour mettre à jour les liens de navigation et le contenu en fonction de la langue
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Effacer les liens existants
+
+            // Liens de navigation spécifiques à la langue
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Mettre à jour les liens de navigation
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Aller à ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Fonction de changement de langue
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Mettre à jour les liens de navigation en fonction de la langue sélectionnée
+            updateNavLinks(language);
+
+            // Naviguer vers la page d'accueil correspondante
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Définir la langue par défaut en fonction de l'URL ou en anglais
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    <section>
+        <h2>Analyse des Données dans la Planification Urbaine</h2>
+        <p>L'analyse des données est un élément clé de la planification urbaine moderne. En analysant de grands ensembles de données provenant de diverses sources telles que les dispositifs IoT, les systèmes de transport et les capteurs environnementaux, les villes peuvent prendre des décisions basées sur les données qui améliorent l'efficacité, la durabilité et la qualité de vie des habitants. Voici comment l'analyse des données est utilisée dans la planification urbaine :</p>
+
+        <h3>Qu'est-ce que l'Analyse des Données dans la Planification Urbaine ?</h3>
+        <p>L'analyse des données dans la planification urbaine consiste à utiliser des outils et techniques avancés pour analyser les données collectées à partir de divers systèmes urbains. En traitant et en interprétant ces données, les urbanistes peuvent obtenir des informations qui aident à façonner le développement des villes, améliorer la gestion des ressources et renforcer l'engagement des citoyens.</p>
+
+        <h3>Principales Applications de l'Analyse des Données dans la Planification Urbaine</h3>
+        <ul>
+            <li><strong>Analyse du Trafic et de la Mobilité :</strong> En analysant les données de circulation, les urbanistes peuvent optimiser les réseaux routiers, améliorer les itinéraires de transport public et réduire la congestion dans les villes.</li>
+            <li><strong>Utilisation des Terres et Zonage :</strong> L'analyse des données aide les urbanistes à prendre des décisions éclairées concernant l'utilisation des terres, la réglementation du zonage et la répartition de l'espace pour les zones résidentielles, commerciales et vertes.</li>
+            <li><strong>Durabilité Environnementale :</strong> Les données des capteurs environnementaux peuvent être utilisées pour surveiller la qualité de l'air, la gestion des déchets et la consommation d'eau afin de promouvoir un développement urbain plus durable.</li>
+            <li><strong>Tendances Sociales et Santé Publique :</strong> En analysant les données démographiques et les statistiques de santé, les urbanistes peuvent concevoir de meilleures initiatives de santé publique, optimiser l'accès aux services et traiter les inégalités sociales.</li>
+            <li><strong>Infrastructures Intelligentes :</strong> L'analyse des données aide à la conception et à la gestion des infrastructures intelligentes, y compris les bâtiments intelligents, les systèmes énergétiques efficaces et les réseaux intelligents.</li>
+        </ul>
+
+        <h3>Avantages de l'Analyse des Données dans la Planification Urbaine</h3>
+        <ul>
+            <li><strong>Prise de Décision Informée :</strong> Les données permettent aux urbanistes de prendre des décisions basées sur des informations en temps réel, améliorant ainsi la précision et l'efficacité de leurs stratégies.</li>
+            <li><strong>Augmentation de l'Efficacité :</strong> Les approches basées sur les données optimisent l'utilisation des ressources et rationalisent les processus de planification urbaine.</li>
+            <li><strong>Meilleur Engagement Public :</strong> L'analyse des données sur les préférences et besoins du public peut conduire à une planification urbaine plus inclusive et à un meilleur engagement avec les citoyens.</li>
+            <li><strong>Planification Prédictive :</strong> L'analyse des données permet aux urbanistes de prédire les tendances futures, telles que la croissance de la population ou les besoins en transport, et de planifier en conséquence.</li>
+            <li><strong>Réduction des Coûts :</strong> En optimisant la gestion des ressources et le développement des infrastructures, l'analyse des données peut réduire les coûts et améliorer l'efficacité globale des projets de planification urbaine.</li>
+        </ul>
+
+        <h3>Défis et Considérations</h3>
+        <p>Bien que l'analyse des données offre des opportunités considérables pour améliorer la planification urbaine, il existe des défis, notamment les préoccupations concernant la confidentialité et la sécurité des données, le besoin d'une gouvernance appropriée des données et le potentiel de biais dans la prise de décision algorithmique. Il est essentiel que les villes développent des cadres éthiques et des politiques pour garantir l'utilisation responsable des données dans la planification urbaine.</p>
+
+        <h3>L'Avenir de l'Analyse des Données dans la Planification Urbaine</h3>
+        <p>L'avenir de l'analyse des données dans la planification urbaine est prometteur. Avec les progrès de l'IA, de l'apprentissage automatique et des mégadonnées, les villes seront capables de prendre des décisions encore plus précises et efficaces. L'analyse des données jouera un rôle crucial dans la construction de villes plus intelligentes, plus durables et plus vivables à l'avenir.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Solutions de Villes Intelligentes de Harika.</p>
+    </footer>
+
+</body>
+</html>
