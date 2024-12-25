@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रौद्योगिकी | स्मार्ट सिटी समाधान</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="interactive.js" defer></script>
+    <style>
+        /* Style for buttons to match header color */
+        button {
+            background-color: #007BFF; /* Matching blue color of header */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Adjust padding */
+            font-size: 16px; /* Set font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>स्मार्ट सिटी समाधान</h1>
+        <nav aria-label="मुख्य नेविगेशन">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">भाषा चुनें</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi" selected>हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+
+            if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section>
+        <h2>स्मार्ट शहरों में प्रौद्योगिकी</h2>
+        <p>प्रौद्योगिकी "स्मार्ट शहरों" को बदलने में एक महत्वपूर्ण भूमिका निभाती है। **इंटरनेट ऑफ थिंग्स (IoT)** उपकरणों से लेकर **कृत्रिम बुद्धिमत्ता (AI)** और **डेटा विश्लेषण** तक, ये नवाचार शहरों को अधिक कुशल, सुरक्षित और स्थायी बनाते हैं। आइए स्मार्ट शहरों को संचालित करने वाली प्रमुख प्रौद्योगिकियों का अन्वेषण करें:</p>
+
+        <h3>इंटरनेट ऑफ थिंग्स (IoT)</h3>
+        <p>**इंटरनेट ऑफ थिंग्स (IoT)** शहर भर में डिवाइस और सेंसर को जोड़ता है ताकि वास्तविक समय में डेटा एकत्र और साझा किया जा सके। उदाहरणों में ट्रैफिक के आधार पर समायोजित होने वाली **स्मार्ट स्ट्रीटलाइट्स**, ऊर्जा खपत के लिए **स्मार्ट मीटर**, और वायु गुणवत्ता की निगरानी के लिए **प्रदूषण सेंसर** शामिल हैं।</p>
+
+        <a href="iot_hi.html">
+            <button>IoT </button>
+        </a>
+        <div id="iot-info" style="display:none;">
+            <p>IoT डिवाइस सेंसर, सॉफ़्टवेयर और अन्य प्रौद्योगिकियों से लैस होते हैं, जो उन्हें डेटा एकत्र और साझा करने में सक्षम बनाते हैं। स्मार्ट शहरों में, IoT डिवाइस ट्रैफिक प्रबंधन, पर्यावरण निगरानी, सार्वजनिक सुरक्षा, और अन्य कार्यों में सहायता करते हैं।</p>
+        </div>
+
+        <h3>कृत्रिम बुद्धिमत्ता (AI) और मशीन लर्निंग (ML)</h3>
+        <p>**कृत्रिम बुद्धिमत्ता (AI)** और **मशीन लर्निंग (ML)** स्मार्ट शहरों में निर्णय लेने, भविष्यवाणी विश्लेषण, और संसाधन प्रबंधन को अनुकूलित करने के लिए उपयोग किए जाते हैं। AI IoT डिवाइसों द्वारा एकत्र किए गए बड़े डेटा सेट का विश्लेषण करता है और वास्तविक समय में भविष्यवाणियां करता है।</p>
+
+        <a href="ai-in-smart-cities_hi.html">
+            <button>स्मार्ट शहरों में AI</button>
+        </a>
+        <div id="ai-info" style="display:none;">
+            <p>AI का उपयोग स्वायत्त वाहनों, ट्रैफिक भविष्यवाणी, ऊर्जा प्रबंधन, और अपराध पूर्वानुमान जैसे विभिन्न स्मार्ट सिटी अनुप्रयोगों में किया जाता है।</p>
+        </div>
+
+        <h3>स्मार्ट इंफ्रास्ट्रक्चर</h3>
+        <p>**स्मार्ट इंफ्रास्ट्रक्चर** में इमारतें, सड़कें, और सार्वजनिक स्थान शामिल हैं जो संसाधनों के उपयोग की निगरानी और प्रबंधन के लिए सेंसर और कनेक्टिविटी से लैस हैं।</p>
+
+        <a href="smart-infrastructure_hi.html">
+            <button>स्मार्ट इंफ्रास्ट्रक्चर </button>
+        </a>
+        <div id="infrastructure-info" style="display:none;">
+            <p>स्मार्ट इंफ्रास्ट्रक्चर में जुड़ी हुई प्रौद्योगिकियां शामिल हैं जो शहरों को कुशलता से और स्थायी रूप से संचालित करने में सक्षम बनाती हैं।</p>
+        </div>
+
+        <h3>डेटा विश्लेषण और शहरी योजना</h3>
+        <p>**डेटा विश्लेषण** शहरी योजना और विकास में महत्वपूर्ण भूमिका निभाता है। IoT उपकरणों और अन्य स्रोतों से एकत्र डेटा का विश्लेषण करके, शहर बुनियादी ढांचा विकास, ट्रैफिक प्रबंधन, और सार्वजनिक स्वास्थ्य रणनीतियों के बारे में सूचित निर्णय ले सकते हैं।</p>
+
+        <a href="data-analytics-urban-planning_hi.html">
+            <button>शहरी योजना में डेटा विश्लेषण </button>
+        </a>
+        <div id="data-analytics-info" style="display:none;">
+            <p>डेटा विश्लेषण का उपयोग शहरी योजना में रुझानों का विश्लेषण करने और पूर्वानुमान लगाने के लिए किया जाता है।</p>
+        </div>
+    </section>
+
+    <br>
+    <br>     
+    <br>
+     
+    
+    
+    <footer>
+        <p>&copy; हरिका का स्मार्ट सिटी समाधान।</p>
+    </footer>
+
+</body>
+</html>
