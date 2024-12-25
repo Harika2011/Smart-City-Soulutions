@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos Eléctricos | Soluciones para Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Soluciones de Ciudad Inteligente</h1>
+        <nav aria-label="Navegación principal">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Seleccione idioma</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="hindi">हिंदी</option>
+                <option value="english">English</option>
+                <option value="french">Français</option>
+                <option value="spanish" selected>Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+    
+            const links = {
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+    
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Ir a ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+    
+        function switchLanguage(select) {
+            const language = select.value;
+            updateNavLinks(language);
+    
+            if (language === "spanish") {
+                location.href = "homepage_es.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            }
+        }
+    
+        const currentLanguage = location.href.includes("_es")
+            ? "spanish"
+            : location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : "english";
+    
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+
+    <section>
+        <h2>Vehículos Eléctricos en Ciudades Inteligentes</h2>
+        <p>Los vehículos eléctricos (VE) están revolucionando la forma en que pensamos sobre el transporte. Son ecológicos, rentables y desempeñan un papel clave en la reducción de la contaminación del aire urbano. Así es como los VE encajan en la visión de las ciudades inteligentes:</p>
+
+        <h3>¿Qué son los Vehículos Eléctricos?</h3>
+        <p>Los vehículos eléctricos funcionan completamente con electricidad, utilizando baterías como fuente de energía. A diferencia de los vehículos tradicionales, no producen emisiones, lo que los convierte en una alternativa limpia a los automóviles impulsados por gasolina.</p>
+
+        <h3>Beneficios de los Vehículos Eléctricos</h3>
+        <ul>
+            <li>Emisiones cero que reducen la contaminación y mejoran la calidad del aire.</li>
+            <li>Menores costos operativos en comparación con los vehículos de gasolina.</li>
+            <li>Funcionamiento silencioso que reduce la contaminación acústica en las ciudades.</li>
+            <li>Se pueden integrar con redes inteligentes y fuentes de energía renovables.</li>
+        </ul>
+
+        <h3>Infraestructura de VE en Ciudades Inteligentes</h3>
+        <p>En las ciudades inteligentes, la infraestructura de carga es esencial para la adopción generalizada de vehículos eléctricos. Las ciudades están instalando **estaciones de carga públicas**, desarrollando **redes de carga rápida** y creando **redes inteligentes** para apoyar los vehículos eléctricos, asegurando que sean convenientes y fiables para el uso diario.</p>
+
+        <h3>El Futuro de los Vehículos Eléctricos</h3>
+        <p>A medida que la tecnología de baterías mejora y la infraestructura sigue creciendo, los vehículos eléctricos serán aún más accesibles, haciendo las ciudades más limpias, más silenciosas y más sostenibles.</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Soluciones para Ciudades Inteligentes de Harika.&copy;</p>
+    </footer>
+
+</body>
+</html>
