@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Infrastructure | Smart City Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <h1>Smart City Solutions</h1>
+        <nav aria-label="Main navigation">
+            <ul id="nav-links" style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
+                <!-- Navigation links will be updated dynamically -->
+            </ul>
+        </nav>
+        <form action="#" method="get" style="margin-left: auto;">
+            <label for="language-select" style="display: none;">Choose Language</label>
+            <select id="language-select" name="language" onchange="switchLanguage(this)" style="padding: 5px; font-size: 16px; border-radius: 5px;">
+                <option value="english" selected>English</option>
+                <option value="hindi">हिंदी</option>
+                <option value="french">Français</option>
+                <option value="spanish">Español</option>
+            </select>
+        </form>
+    </header>
+    
+    <script>
+        // Function to update navigation links and content based on language
+        function updateNavLinks(language) {
+            const navLinks = document.getElementById("nav-links");
+            navLinks.innerHTML = ""; // Clear existing links
+
+            // Language-specific navigation links
+            const links = {
+                english: [
+                    { href: "homepage.html", label: "Home" },
+                    { href: "sustainability.html", label: "Sustainability" },
+                    { href: "transportation.html", label: "Transportation" },
+                    { href: "technology.html", label: "Technology" },
+                ],
+                hindi: [
+                    { href: "homepage_hi.html", label: "मुख्य पृष्ठ" },
+                    { href: "sustainability_hi.html", label: "स्थिरता" },
+                    { href: "transportation_hi.html", label: "परिवहन" },
+                    { href: "technology_hi.html", label: "प्रौद्योगिकी" },
+                ],
+                french: [
+                    { href: "homepage_fr.html", label: "Accueil" },
+                    { href: "sustainability_fr.html", label: "Durabilité" },
+                    { href: "transportation_fr.html", label: "Transport" },
+                    { href: "technology_fr.html", label: "Technologie" },
+                ],
+                spanish: [
+                    { href: "homepage_es.html", label: "Inicio" },
+                    { href: "sustainability_es.html", label: "Sostenibilidad" },
+                    { href: "transportation_es.html", label: "Transporte" },
+                    { href: "technology_es.html", label: "Tecnología" },
+                ],
+            };
+
+            // Update navigation links
+            links[language].forEach(link => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                a.setAttribute("aria-label", `Go to ${link.label}`);
+                li.appendChild(a);
+                navLinks.appendChild(li);
+            });
+        }
+
+        // Switch language function
+        function switchLanguage(select) {
+            const language = select.value;
+
+            // Update navigation links based on the selected language
+            updateNavLinks(language);
+
+            // Navigate to the corresponding homepage
+            if (language === "english") {
+                location.href = "homepage.html";
+            } else if (language === "hindi") {
+                location.href = "homepage_hi.html";
+            } else if (language === "french") {
+                location.href = "homepage_fr.html";
+            } else if (language === "spanish") {
+                location.href = "homepage_es.html";
+            }
+        }
+
+        // Set the default language based on the URL or English
+        const currentLanguage = location.href.includes("_hi")
+            ? "hindi"
+            : location.href.includes("_fr")
+            ? "french"
+            : location.href.includes("_es")
+            ? "spanish"
+            : "english";
+
+        document.getElementById("language-select").value = currentLanguage;
+        updateNavLinks(currentLanguage);
+    </script>
+    
+    
+
+    <section>
+        <h2>Smart Infrastructure in Smart Cities</h2>
+        <p>Smart infrastructure refers to the integration of advanced technologies into urban infrastructure to improve its performance, efficiency, and sustainability. It includes everything from energy grids to transportation systems and buildings, all equipped with sensors, communication networks, and data-driven systems.</p>
+
+        <h3>What is Smart Infrastructure?</h3>
+        <p>Smart infrastructure uses IoT (Internet of Things) devices, sensors, and data analytics to create interconnected systems that enable real-time monitoring and optimization of resources and services. The goal is to create more efficient, sustainable, and resilient urban environments.</p>
+
+        <h3>Key Components of Smart Infrastructure</h3>
+        <ul>
+            <li><strong>Smart Grids:</strong> Advanced energy grids that use real-time data to optimize energy distribution, reduce wastage, and integrate renewable energy sources.</li>
+            <li><strong>Smart Transportation Systems:</strong> IoT-enabled systems for traffic monitoring, autonomous vehicles, and smart parking solutions.</li>
+            <li><strong>Smart Buildings:</strong> Buildings equipped with energy-efficient systems, such as lighting, heating, and cooling, controlled via sensors and automation.</li>
+            <li><strong>Smart Water Management:</strong> IoT devices used to monitor and manage water distribution and quality, reducing waste and ensuring sustainable water usage.</li>
+            <li><strong>Smart Waste Management:</strong> Waste bins equipped with sensors that notify waste collection teams when they are full, improving efficiency and reducing operational costs.</li>
+        </ul>
+
+        <h3>Benefits of Smart Infrastructure</h3>
+        <ul>
+            <li>Enhanced operational efficiency through automation and data-driven decision-making.</li>
+            <li>Reduction in energy consumption and resource wastage.</li>
+            <li>Improved sustainability and environmental impact by optimizing energy use, water management, and waste management.</li>
+            <li>Increased public safety through smart monitoring systems (e.g., surveillance cameras, traffic management).</li>
+            <li>Better resilience against natural disasters or infrastructure failures through proactive maintenance and predictive analytics.</li>
+        </ul>
+
+        <h3>Challenges and Considerations</h3>
+        <p>While smart infrastructure offers numerous advantages, it also comes with challenges. These include data privacy concerns, cybersecurity risks, the cost of upgrading existing infrastructure, and the need for robust regulatory frameworks to ensure equitable and ethical implementation.</p>
+
+        <h3>The Future of Smart Infrastructure</h3>
+        <p>As cities continue to grow and become more connected, the role of smart infrastructure will only increase. Emerging technologies like 5G, AI, and blockchain will enhance the capabilities of smart infrastructure, enabling cities to become more efficient, resilient, and sustainable.</p>
+    
+        <button onclick="window.location.href='technology.html'" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Back to Technology</button>
+    
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+        <p>&copy; Harika's Smart City Solutions.&copy;</p>
+    </footer>
+
+</body>
+</html>
