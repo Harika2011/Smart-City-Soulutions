@@ -51,7 +51,7 @@
         <h1>Smart City Solutions</h1>
         <nav aria-label="Main navigation">
             <ul id="nav-links">
-                <!-- Navigation links will be updated dynamically -->
+                
             </ul>
         </nav>
         <form action="#" method="get">
@@ -66,12 +66,11 @@
     </header>
     
     <script>
-        // Function to update navigation links and content based on language
+        
         function updateNavLinks(language) {
             const navLinks = document.getElementById("nav-links");
-            navLinks.innerHTML = ""; // Clear existing links
-
-            // Language-specific navigation links
+            navLinks.innerHTML = ""; 
+           
             const links = {
                 english: [
                     { href: "homepage.html", label: "Home" },
@@ -99,7 +98,7 @@
                 ],
             };
 
-            // Update navigation links
+           
             links[language].forEach(link => {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
@@ -111,14 +110,14 @@
             });
         }
 
-        // Switch language function
+        
         function switchLanguage(select) {
             const language = select.value;
 
-            // Update navigation links based on the selected language
+            
             updateNavLinks(language);
 
-            // Navigate to the corresponding homepage
+           
             if (language === "english") {
                 location.href = "homepage.html";
             } else if (language === "hindi") {
@@ -130,7 +129,7 @@
             }
         }
 
-        // Set the default language based on the URL or English
+       
         const currentLanguage = location.href.includes("_hi")
             ? "hindi"
             : location.href.includes("_fr")
@@ -168,43 +167,11 @@
             </li>
         </ul>
     </section>
-    <!-- Button for toggling information -->
-    <button id="toggleInfrastructureBtn">Toggle Smart Infrastructure Info</button>
-    
-    <!-- Hidden section for smart infrastructure details -->
-    <div id="infrastructureInfo" style="display:none;">
-        <p>This is some detailed information about Smart Infrastructure...</p>
-    </div>
-
-    <!-- Interactive map -->
-    <div id="interactiveMap" style="width:500px; height:300px; background-color: lightgrey;">
-        Click on the map to see coordinates.
-    </div>
-
-    <!-- Form with validation -->
-    <form id="myForm">
-        <input type="text" id="name" placeholder="Name">
-        <input type="email" id="email" placeholder="Email">
-        <button id="submitFormBtn" type="button">Submit</button>
-    </form>
-
-    <!-- Learn More Button for Modal -->
-    <button id="learnMoreBtn">Learn More</button>
-
-    <!-- Modal Popup -->
-    <div id="myModal" style="display:none;">
-        <div style="background-color: white; padding: 20px; border: 1px solid #ccc;">
-            <span id="closeModalBtn" style="cursor: pointer;">&times;</span>
-            <h2>Smart Cities Overview</h2>
-            <p>More information about smart cities...</p>
-        </div>
-    </div>
-
-    <!-- Dynamic content update -->
-    <button id="updateContentBtn">Update Content</button>
-    <div id="dynamicContent">
-    </div>
-
+  
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     
